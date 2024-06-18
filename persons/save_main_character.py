@@ -2,7 +2,7 @@ import os
 import json
 import random
 import sys
-from persons.load_main_character import load_main_character
+from persons.load_main_character import load_main_character  # Assuming this function is used elsewhere
 
 def save_main_character_to_json(main_character):
     """
@@ -19,8 +19,8 @@ def save_main_character_to_json(main_character):
     # Ensure saving only to the "run" directory
     save_dir = os.path.join(os.getcwd(), 'run')
     if not os.path.exists(save_dir):
-        print(f"Error: Directory 'run' does not exist. Exiting with code 216615.")
-        sys.exit(216615)
+        print(f"Creating 'run' directory...")
+        os.makedirs(save_dir)
 
     # Always save the main character as "main_character.json"
     save_filename = os.path.join(save_dir, "main_character.json")

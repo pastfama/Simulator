@@ -1,15 +1,17 @@
 {
-    "id": "8080f30a-b420-44f2-b9b8-82749cfb5826",
-    "first_name": "Shanon",
-    "last_name": "Kendall",
+    "id": "95bda782-775d-4e66-a89f-9063f61e25cd",
+    "first_name": "Janie",
+    "last_name": "Coleman",
     "age": 0,
     "traits": {
-        "Health": 24,
-        "Smarts": 0,
-        "Looks": 13,
-        "Happiness": 12
+        "Health": 54,
+        "Smarts": 11,
+        "Looks": 2,
+        "Happiness": 73
     },
-    "money": 7103,
+    "money": 5809,
     "property": "None",
-    "relationship": []
+    "relationship": [
+        "Daphna & Vina"
+    ]
 }

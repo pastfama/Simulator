@@ -10,7 +10,7 @@ from kivy.uix.popup import Popup
 from screens.widgets.bargraph import BarGraphWidget
 from persons.person import Person
 from persons.save_main_character import save_main_character_to_json
-
+from persons.load_main_character import load_main_character
 
 class WelcomeScreen(Screen):
     def __init__(self, **kwargs):
@@ -50,23 +50,27 @@ class WelcomeScreen(Screen):
         self.manager.current = 'game'
 
     def next_pressed(self, *args):
-        new_character = Person()
-        self.character_label.text = new_character.create_full_name()
-        self.age_label.text = f"Age: {new_character.age}"
+        # Create a new character with age 0 and depth 2
+        new_character = Person(age=0, depth=2)
+        new_character.generate_family()
 
-        new_values = {
+        # Generate new random traits for the new character
+        new_character.traits = {
             'Health': random.randint(0, 100),
             'Smarts': random.randint(0, 100),
             'Looks': random.randint(0, 100),
             'Happiness': random.randint(0, 100)
         }
-        self.bar_graph.update_characteristics(new_values)
-        self.save_game(new_character)
 
+        # Update the characteristics in your UI (assuming bar_graph is a method to update UI)
+        self.bar_graph.update_characteristics(new_character.traits)
+
+        # Print current widget data (assuming this is a method to debug/print data)
         self.print_current_widget_data()
 
-    def save_game(self, main_character):
-        save_main_character_to_json(main_character)
+        # Save the new character to JSON
+        save_main_character_to_json(new_character)
+        load_main_character(self.character_label, self.age_label, self.bar_graph)
 
     def print_current_widget_data(self):
         print(f"Current Character: {self.character_label.text}")

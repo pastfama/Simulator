@@ -11,12 +11,12 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 class Person:
     MAX_RECURSION_DEPTH = 2
 
-    def __init__(self, depth=0):
+    def __init__(self, age=None, last_name=None, depth=0):
         self.id = str(uuid.uuid4())
         self.gender = self.generate_gender()
         self.first_name = self.generate_first_name()
-        self.last_name = self.generate_last_name()
-        self.age = random.randint(0, 30) if depth == 0 else random.randint(30, 60)
+        self.last_name = last_name if last_name is not None else self.generate_last_name()
+        self.age = age if age is not None else (random.randint(0, 30) if depth == 0 else random.randint(30, 60))
         self.parents = []
         self.parents_relationships = []
         self.traits = self.generate_traits()
@@ -104,7 +104,9 @@ class Person:
         }
 
     def save_to_json(self):
-        filename = os.path.join(os.getcwd(), f"{self.id}.json")
+        run_folder = os.path.join(os.getcwd(), "run")
+        os.makedirs(run_folder, exist_ok=True)
+        filename = os.path.join(run_folder, f"{self.id}.json")
         with open(filename, 'w') as f:
             json.dump(self.to_dict(), f, indent=4)
         logging.info(f'Saved Person object to JSON file: {filename}')
@@ -133,7 +135,7 @@ class Person:
 # Example usage:
 if __name__ == "__main__":
     logging.debug("Starting the program")
-    person = Person()
+    person = Person(age=25, last_name="Smith")  # Specifying the age and last name
     person.create_full_name()
     person.generate_family()
     person.save_to_json()
