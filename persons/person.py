@@ -9,6 +9,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 class Person:
     MAX_RECURSION_DEPTH = 2
+    MAX_RECURSION_DEPTH = 2
+    FERTILE_AGE_MIN = 18
+    FERTILE_AGE_MAX = 45  # Adjust this based on your specific scenario
 
     def __init__(self, age=None, last_name=None, depth=0):
         self.id = str(uuid.uuid4())
@@ -76,15 +79,18 @@ class Person:
         father = Person(depth=current_depth + 1)
         mother = Person(depth=current_depth + 1)
 
-        # Assign the baby's last name to the parents
+        # Ensure the generated parents are within fertile age range
+        while father.age < Person.FERTILE_AGE_MIN or father.age > Person.FERTILE_AGE_MAX:
+            father.age = random.randint(18, 45)
+        while mother.age < Person.FERTILE_AGE_MIN or mother.age > Person.FERTILE_AGE_MAX:
+            mother.age = random.randint(18, 45)
+
         father.last_name = self.last_name
         mother.last_name = self.last_name
 
         # Ensure father is male and mother is female
-        if father.gender != "Male":
-            father.gender = "Male"
-        if mother.gender != "Female":
-            mother.gender = "Female"
+        father.gender = "Male"
+        mother.gender = "Female"
 
         self.parents.append({
             'father': father.to_dict(),

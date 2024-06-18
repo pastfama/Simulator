@@ -1,17 +1,17 @@
 {
-    "id": "32771c2d-f9fe-411e-9395-b9a1044b7eca",
-    "first_name": "Nathan",
-    "last_name": "Moon",
+    "id": "25cfa659-aa63-4de7-98d6-9a71edd1c6d5",
+    "first_name": "Christi",
+    "last_name": "Reeves",
     "age": 0,
     "traits": {
-        "Health": 62,
-        "Smarts": 32,
-        "Looks": 80,
-        "Happiness": 82
+        "Health": 76,
+        "Smarts": 70,
+        "Looks": 62,
+        "Happiness": 92
     },
-    "money": 5946,
+    "money": 5369,
     "property": "None",
     "relationship": [
-        "Chelton & Kim"
+        "Jania & Elizabet"
     ]
 }
