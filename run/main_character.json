@@ -1,0 +1,15 @@
+{
+    "id": "8080f30a-b420-44f2-b9b8-82749cfb5826",
+    "first_name": "Shanon",
+    "last_name": "Kendall",
+    "age": 0,
+    "traits": {
+        "Health": 24,
+        "Smarts": 0,
+        "Looks": 13,
+        "Happiness": 12
+    },
+    "money": 7103,
+    "property": "None",
+    "relationship": []
+}
