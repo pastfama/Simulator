@@ -1,12 +1,11 @@
 import random
 import uuid
-import json
 import os
 import logging
+from persons.save_person import save_person_to_json  # Adjust import as per your project structure
 
 # Step 1: Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
 
 class Person:
     MAX_RECURSION_DEPTH = 2
@@ -79,8 +78,8 @@ class Person:
         father.last_name = self.last_name
 
         self.parents.append({
-            'father': father.to_dict(),
-            'mother': mother.to_dict()
+            'father': father,
+            'mother': mother
         })
 
         self.parents_relationships.append(f"{father.first_name} & {mother.first_name}")
@@ -104,13 +103,7 @@ class Person:
         }
 
     def save_to_json(self):
-        run_folder = os.path.join(os.getcwd(), "run")
-        os.makedirs(run_folder, exist_ok=True)
-        filename = os.path.join(run_folder, f"{self.id}.json")
-        with open(filename, 'w') as f:
-            json.dump(self.to_dict(), f, indent=4)
-        logging.info(f'Saved Person object to JSON file: {filename}')
-        return filename
+        return save_person_to_json(self)
 
     @classmethod
     def from_dict(cls, data):
@@ -131,12 +124,3 @@ class Person:
     def __str__(self):
         return f"{self.first_name} {self.last_name}, Age: {self.age}, Gender: {self.gender}"
 
-
-# Example usage:
-if __name__ == "__main__":
-    logging.debug("Starting the program")
-    person = Person(age=25, last_name="Smith")  # Specifying the age and last name
-    person.create_full_name()
-    person.generate_family()
-    person.save_to_json()
-    logging.debug("Program completed successfully")

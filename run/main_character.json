@@ -1,17 +1,17 @@
 {
-    "id": "95bda782-775d-4e66-a89f-9063f61e25cd",
-    "first_name": "Janie",
-    "last_name": "Coleman",
+    "id": "9a98887d-6ea6-42e7-8d16-cfdef9005935",
+    "first_name": "Amadeus",
+    "last_name": "Pollard",
     "age": 0,
     "traits": {
-        "Health": 54,
-        "Smarts": 11,
-        "Looks": 2,
-        "Happiness": 73
+        "Health": 42,
+        "Smarts": 32,
+        "Looks": 20,
+        "Happiness": 97
     },
-    "money": 5809,
+    "money": 1735,
     "property": "None",
     "relationship": [
-        "Daphna & Vina"
+        "Rolland & Magdalen"
     ]
 }
