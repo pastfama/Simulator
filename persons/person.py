@@ -1,10 +1,10 @@
+import os
+import json
 import random
 import uuid
-import os
 import logging
-from persons.save_person import save_person_to_json  # Adjust import as per your project structure
+from persons.save_person import save_person_to_json, save_parents_to_json
 
-# Step 1: Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Person:
@@ -78,8 +78,8 @@ class Person:
         father.last_name = self.last_name
 
         self.parents.append({
-            'father': father,
-            'mother': mother
+            'father': father.to_dict(),
+            'mother': mother.to_dict()
         })
 
         self.parents_relationships.append(f"{father.first_name} & {mother.first_name}")
@@ -98,12 +98,17 @@ class Person:
             'first_name': self.first_name,
             'last_name': self.last_name,
             'age': self.age,
-            'parents': self.parents,
             'traits': self.traits
         }
 
     def save_to_json(self):
-        return save_person_to_json(self)
+        # Save main character data
+        main_filename = save_person_to_json(self.to_dict(), f"{self.id}.json")
+        logging.info(f'Saved Person object to JSON file: {main_filename}')
+
+        # Save parents' data
+        save_parents_to_json([parent['father'] for parent in self.parents])
+        save_parents_to_json([parent['mother'] for parent in self.parents])
 
     @classmethod
     def from_dict(cls, data):
@@ -124,3 +129,12 @@ class Person:
     def __str__(self):
         return f"{self.first_name} {self.last_name}, Age: {self.age}, Gender: {self.gender}"
 
+
+# Example usage:
+if __name__ == "__main__":
+    logging.debug("Starting the program")
+    person = Person(age=25, last_name="Smith")  # Specifying the age and last name
+    person.create_full_name()
+    person.generate_family()
+    person.save_to_json()
+    logging.debug("Program completed successfully")

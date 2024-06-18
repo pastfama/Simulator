@@ -11,6 +11,7 @@ from screens.widgets.bargraph import BarGraphWidget
 from persons.person import Person
 from persons.save_main_character import save_main_character_to_json
 from persons.load_main_character import load_main_character
+from persons.save_person import save_parents_to_json, save_person_to_json
 
 class WelcomeScreen(Screen):
     def __init__(self, **kwargs):
@@ -70,6 +71,7 @@ class WelcomeScreen(Screen):
 
         # Save the new character to JSON
         save_main_character_to_json(new_character)
+        save_parents_to_json(new_character.parents)
 
         # Load the main character to update UI labels (assuming load_main_character updates labels)
         load_main_character(self.character_label, self.age_label, self.bar_graph)

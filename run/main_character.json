@@ -1,17 +1,17 @@
 {
-    "id": "808cc1b2-7cdc-40a3-a6cf-e66806e4a9fc",
-    "first_name": "Pearle",
-    "last_name": "Dickson",
+    "id": "498fd8d5-c172-4fe1-9277-69fa53a17431",
+    "first_name": "Caspar",
+    "last_name": "Haas",
     "age": 0,
     "traits": {
-        "Health": 4,
-        "Smarts": 37,
-        "Looks": 47,
-        "Happiness": 16
+        "Health": 59,
+        "Smarts": 28,
+        "Looks": 64,
+        "Happiness": 24
     },
-    "money": 7664,
+    "money": 5068,
     "property": "None",
     "relationship": [
-        "Jerrome & Jacklyn"
+        "Jeffry & Meaghan"
     ]
 }

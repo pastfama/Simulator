@@ -1,5 +1,7 @@
 import os
 import json
+import uuid  # Import uuid module for generating UUIDs
+import logging  # Import logging module for logging messages
 
 def save_person_to_json(person_data, filename):
     """
@@ -35,7 +37,8 @@ def save_parents_to_json(parents_data):
     os.makedirs(family_folder, exist_ok=True)
 
     for parent_data in parents_data:
-        parent_filename = os.path.join(family_folder, f"{parent_data['id']}.json")
+        parent_id = parent_data.get('id', str(uuid.uuid4()))  # Ensure 'id' is present or generate a new one
+        parent_filename = os.path.join(family_folder, f"{parent_id}.json")
         with open(parent_filename, 'w') as f:
             json.dump(parent_data, f, indent=4)
-        print(f"Saved parent {parent_data['id']} to {parent_filename}")
+        logging.info(f"Saved parent {parent_id} to {parent_filename}")
