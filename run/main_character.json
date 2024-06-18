@@ -1,17 +1,17 @@
 {
-    "id": "9a98887d-6ea6-42e7-8d16-cfdef9005935",
-    "first_name": "Amadeus",
-    "last_name": "Pollard",
+    "id": "808cc1b2-7cdc-40a3-a6cf-e66806e4a9fc",
+    "first_name": "Pearle",
+    "last_name": "Dickson",
     "age": 0,
     "traits": {
-        "Health": 42,
-        "Smarts": 32,
-        "Looks": 20,
-        "Happiness": 97
+        "Health": 4,
+        "Smarts": 37,
+        "Looks": 47,
+        "Happiness": 16
     },
-    "money": 1735,
+    "money": 7664,
     "property": "None",
     "relationship": [
-        "Rolland & Magdalen"
+        "Jerrome & Jacklyn"
     ]
 }

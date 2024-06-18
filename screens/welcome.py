@@ -70,8 +70,9 @@ class WelcomeScreen(Screen):
 
         # Save the new character to JSON
         save_main_character_to_json(new_character)
-        load_main_character(self.character_label, self.age_label, self.bar_graph)
 
+        # Load the main character to update UI labels (assuming load_main_character updates labels)
+        load_main_character(self.character_label, self.age_label, self.bar_graph)
     def print_current_widget_data(self):
         print(f"Current Character: {self.character_label.text}")
         print(f"Current Age: {self.age_label.text}")

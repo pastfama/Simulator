@@ -2,7 +2,7 @@ import os
 import json
 import random
 import sys
-from persons.load_main_character import load_main_character  # Assuming this function is used elsewhere
+from persons.load_main_character import load_main_character
 
 def save_main_character_to_json(main_character):
     """
