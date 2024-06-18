@@ -1,17 +1,17 @@
 {
-    "id": "498fd8d5-c172-4fe1-9277-69fa53a17431",
-    "first_name": "Caspar",
-    "last_name": "Haas",
+    "id": "32771c2d-f9fe-411e-9395-b9a1044b7eca",
+    "first_name": "Nathan",
+    "last_name": "Moon",
     "age": 0,
     "traits": {
-        "Health": 59,
-        "Smarts": 28,
-        "Looks": 64,
-        "Happiness": 24
+        "Health": 62,
+        "Smarts": 32,
+        "Looks": 80,
+        "Happiness": 82
     },
-    "money": 5068,
+    "money": 5946,
     "property": "None",
     "relationship": [
-        "Jeffry & Meaghan"
+        "Chelton & Kim"
     ]
 }

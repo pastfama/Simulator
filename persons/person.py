@@ -75,7 +75,16 @@ class Person:
 
         father = Person(depth=current_depth + 1)
         mother = Person(depth=current_depth + 1)
+
+        # Assign the baby's last name to the parents
         father.last_name = self.last_name
+        mother.last_name = self.last_name
+
+        # Ensure father is male and mother is female
+        if father.gender != "Male":
+            father.gender = "Male"
+        if mother.gender != "Female":
+            mother.gender = "Female"
 
         self.parents.append({
             'father': father.to_dict(),
