@@ -1,8 +1,7 @@
 import os
 import json
 import random
-import sys
-from persons.load_main_character import load_main_character
+from persons.person import Person  # Assuming Person class is defined in persons/person.py
 
 def save_main_character_to_json(main_character):
     """
@@ -28,8 +27,8 @@ def save_main_character_to_json(main_character):
     # Prepare parents data to save
     parents_data = [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in main_character.parents]
 
-    # Prepare siblings data to save
-    siblings_data = [{'sibling': sibling['id']} for sibling in main_character.siblings]
+    # Ensure siblings are Person objects and collect their IDs
+    siblings_data = [{'sibling': sibling.id} for sibling in main_character.siblings if isinstance(sibling, Person)]
 
     # Prepare data to save
     data_to_save = {
@@ -54,10 +53,15 @@ def save_main_character_to_json(main_character):
 
 # Example usage:
 if __name__ == "__main__":
-    logging.debug("Starting the program")
-    person = Person(age=25, last_name="Smith")  # Specifying the age and last name
+    person = Person(age=25, last_name="Smith")  # Example initialization of main character
     person.create_full_name()
     person.generate_family()
-    person.save_to_json()
+    person.save_to_json()  # Saves main character including parents
+
+    # Generate and save siblings (assuming this is done elsewhere)
+    siblings = generate_siblings(person)
+    for sibling in siblings:
+        sibling.save_to_json()  # Save each sibling to JSON file
+
     save_main_character_to_json(person)
-    logging.debug("Program completed successfully")
+    print("Main character and siblings generated and saved successfully.")

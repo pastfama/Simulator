@@ -8,15 +8,18 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 class Person:
     MAX_RECURSION_DEPTH = 2
-    FERTILE_AGE_MIN = 18
-    FERTILE_AGE_MAX = 45
+    FATHER_FERTILE_AGE_MIN = 25
+    FATHER_FERTILE_AGE_MAX = 50
+    MOTHER_FERTILE_AGE_MIN = 20
+    MOTHER_FERTILE_AGE_MAX = 45
+    MAX_PARENT_AGE_AT_CHILD_BIRTH = 50  # Maximum age of parents when they have children
 
     def __init__(self, age=None, last_name=None, depth=0):
         self.id = str(uuid.uuid4())
         self.gender = self.generate_gender()
         self.first_name = self.generate_first_name()
         self.last_name = last_name if last_name is not None else self.generate_last_name()
-        self.age = age if age is not None else (random.randint(0, 30) if depth == 0 else random.randint(30, 60))
+        self.age = age if age is not None else self.generate_age(depth)
         self.parents = []
         self.parents_relationships = []
         self.siblings = []  # New attribute to store siblings
@@ -56,6 +59,12 @@ class Person:
                 logging.debug(f'Generated last name: {last_name}')
                 return last_name
 
+    def generate_age(self, depth):
+        if depth == 0:
+            return random.randint(self.FATHER_FERTILE_AGE_MIN, self.MAX_PARENT_AGE_AT_CHILD_BIRTH)
+        else:
+            return random.randint(self.MOTHER_FERTILE_AGE_MIN, self.MAX_PARENT_AGE_AT_CHILD_BIRTH)
+
     def generate_traits(self):
         traits = {
             'Health': random.randint(0, 100),
@@ -72,16 +81,14 @@ class Person:
         return full_name
 
     def generate_family(self, current_depth=0):
-        if current_depth >= Person.MAX_RECURSION_DEPTH:
-            return []
+        if current_depth >= self.MAX_RECURSION_DEPTH:
+            return
 
         father = Person(depth=current_depth + 1)
         mother = Person(depth=current_depth + 1)
 
-        while father.age < Person.FERTILE_AGE_MIN or father.age > Person.FERTILE_AGE_MAX:
-            father.age = random.randint(18, 45)
-        while mother.age < Person.FERTILE_AGE_MIN or mother.age > Person.FERTILE_AGE_MAX:
-            mother.age = random.randint(18, 45)
+        father.age = random.randint(self.FATHER_FERTILE_AGE_MIN, self.FATHER_FERTILE_AGE_MAX)
+        mother.age = random.randint(self.MOTHER_FERTILE_AGE_MIN, self.MOTHER_FERTILE_AGE_MAX)
 
         father.last_name = self.last_name
         mother.last_name = self.last_name
@@ -89,18 +96,27 @@ class Person:
         father.gender = "Male"
         mother.gender = "Female"
 
-        self.parents.append({
+        self.parents = [{
             'father': father.to_dict(),
             'mother': mother.to_dict()
-        })
+        }]
 
-        self.parents_relationships.append(f"{father.first_name} & {mother.first_name}")
+        self.parents_relationships = [f"{father.first_name} & {mother.first_name}"]
 
         # Generate siblings
-        num_siblings = random.randint(0, 5)  # Adjust the range as per your requirement
+        num_siblings = random.randint(0, 5)
         for _ in range(num_siblings):
             sibling = Person(depth=current_depth + 1)
             sibling.last_name = self.last_name
+
+            min_sibling_age = max(father.age - 40, self.MOTHER_FERTILE_AGE_MIN)
+            max_sibling_age = min(father.age - 20, father.age - self.FATHER_FERTILE_AGE_MIN)
+
+            if min_sibling_age <= max_sibling_age:
+                sibling.age = random.randint(min_sibling_age, max_sibling_age)
+            else:
+                sibling.age = min_sibling_age
+
             sibling.generate_family(current_depth + 1)
             self.siblings.append(sibling.to_dict())
 
@@ -109,25 +125,29 @@ class Person:
         father.generate_family(current_depth + 1)
         mother.generate_family(current_depth + 1)
 
-        return [father, mother]
-
     def to_dict(self):
+        parents_data = [{
+            'father': parent['father'],
+            'mother': parent['mother']
+        } for parent in self.parents]
+
+        siblings_data = [{'sibling': sibling} for sibling in self.siblings]
+
         return {
             'id': self.id,
-            'gender': self.gender,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'age': self.age,
             'traits': self.traits,
-            'parents': [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in self.parents],
-            'siblings': [{'sibling': sibling['id']} for sibling in self.siblings]  # Include siblings in the dictionary
+            'parents': parents_data,
+            'siblings': siblings_data
         }
 
     def save_to_json(self):
-        save_filename = save_person_to_json(self.to_dict(), f"{self.id}.json")
+        save_filename = self.save_person_to_json(self.to_dict(), f"{self.id}.json")
         logging.info(f'Saved Person object to JSON file: {save_filename}')
-        save_parents_to_json([parent['father'] for parent in self.parents])
-        save_parents_to_json([parent['mother'] for parent in self.parents])
+        self.save_parents_to_json([parent['father'] for parent in self.parents])
+        self.save_parents_to_json([parent['mother'] for parent in self.parents])
 
     @classmethod
     def from_dict(cls, data):
@@ -145,6 +165,24 @@ class Person:
 
     def get_parents_relationships(self):
         return self.parents_relationships
+
+    def save_person_to_json(self, data, filename):
+        save_folder = os.path.join(os.getcwd(), "run", "persons")
+        os.makedirs(save_folder, exist_ok=True)
+        save_path = os.path.join(save_folder, filename)
+        with open(save_path, 'w') as f:
+            json.dump(data, f, indent=4)
+        return save_path
+
+    def save_parents_to_json(self, parents_list):
+        for parent_data in parents_list:
+            if parent_data:
+                parent_id = parent_data['id']
+                parent_filename = f"{parent_id}.json"
+                parent_path = os.path.join(os.getcwd(), "run", "persons", parent_filename)
+                with open(parent_path, 'w') as f:
+                    json.dump(parent_data, f, indent=4)
+                    logging.info(f'Saved parent data to JSON file: {parent_path}')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}, Age: {self.age}, Gender: {self.gender}"

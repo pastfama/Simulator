@@ -4,7 +4,6 @@ import uuid
 import random
 from persons.person import Person  # Assuming Person class is defined in persons/person.py
 
-
 def generate_siblings(person):
     """
     Generate a number of sibling objects based on a probability distribution.
@@ -25,8 +24,10 @@ def generate_siblings(person):
     num_siblings = random.choices(num_siblings_choices, probabilities)[0]
 
     for _ in range(num_siblings):
-        sibling = Person(depth=person.depth + 1)  # Create a new sibling with incremented depth
+        sibling = Person(age=random.randint(0, 30), last_name=person.last_name, depth=person.depth + 1)
+        sibling.parents = person.parents  # Assign the main_character's parents to the sibling
         sibling.generate_family()  # Generate family structure for the sibling
+
         sibling.traits = {
             'Health': random.randint(0, 100),
             'Smarts': random.randint(0, 100),

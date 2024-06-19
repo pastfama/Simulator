@@ -1,27 +1,28 @@
 {
-    "id": "bb13e3b7-892d-4635-97bd-4a8f2b3a9306",
-    "first_name": "Ignatius",
-    "last_name": "Hurst",
+    "id": "9f5c9a21-1f73-4fdd-a06c-2afa414dc6b6",
+    "first_name": "Barnie",
+    "last_name": "Ivey",
     "age": 0,
     "traits": {
-        "Health": 45,
-        "Smarts": 36,
-        "Looks": 11,
-        "Happiness": 43
+        "Health": 52,
+        "Smarts": 64,
+        "Looks": 73,
+        "Happiness": 91
     },
-    "money": 7966,
+    "money": 4384,
     "property": "None",
     "relationship": [
-        "Lorain & Rice"
+        "Ezekiel & Gerrit"
     ],
     "parents": [
         {
-            "father": "54a132e3-71bb-42c7-a797-574d6f021d95",
-            "mother": "36cee7cb-292c-48fb-9a75-818ccf2cf4a4"
+            "father": "6b22926f-58a5-404c-a993-a7964ee487ef",
+            "mother": "1675a637-bd3c-4956-8ad4-0f65b3401450"
         }
     ],
     "siblings": [
-        "63327f0d-38c7-47d7-b82a-8b0ec269b02e",
-        "89bb96bb-14fb-4016-a15c-6f28b892b024"
+        "a5bde309-96cc-4734-9789-25cd0c6824b0",
+        "554e8af4-b3ea-426c-b359-9049785c339d",
+        "70b92931-f9bb-4bdc-8890-7d0c58cfce5f"
     ]
 }
