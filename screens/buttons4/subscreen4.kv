@@ -1,0 +1,47 @@
+<SubScreen4>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            id: character_label
+            font_size: '20sp'
+            size_hint: 1, None
+            height: 50
+
+        Label:
+            id: age_label
+            text: 'Age: 0'
+            font_size: '20sp'
+            size_hint: 1, None
+            height: 50
+
+        Label:
+            text: 'Parents:'
+            font_size: '30sp'
+            size_hint: 1, None
+            height: 50
+
+        BoxLayout:
+            id: parents_container
+            orientation: 'horizontal'
+            spacing: 20
+
+        Label:
+            text: 'Siblings:'
+            font_size: '20sp'
+            size_hint: 1, None
+            height: 50
+
+        BoxLayout:
+            id: siblings_container
+            orientation: 'vertical'
+            spacing: 10
+
+        Button:
+            text: 'Return'
+            font_size: '20sp'
+            size_hint: 1, None
+            height: 50
+            on_release: root.go_back()

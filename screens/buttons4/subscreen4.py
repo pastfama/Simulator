@@ -1,47 +1,16 @@
 import os
 import json
 from kivy.uix.screenmanager import Screen
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
 from kivy.uix.button import Button
 from persons.load_main_character import load_main_character
 
 class SubScreen4(Screen):
-    def __init__(self, **kwargs):
-        super(SubScreen4, self).__init__(**kwargs)
-
-        layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-
-        self.character_label = Label(text='', font_size='20sp', size_hint=(1, None), height=50)
-        layout.add_widget(self.character_label)
-
-        self.age_label = Label(text='Age: 0', font_size='20sp', size_hint=(1, None), height=50)
-        layout.add_widget(self.age_label)
-
-        parents_label = Label(text="Parents:", font_size='20sp', size_hint=(1, None), height=50)
-        layout.add_widget(parents_label)
-
-        self.parents_container = BoxLayout(orientation='horizontal', spacing=10)
-        layout.add_widget(self.parents_container)
-
-        siblings_label = Label(text="Siblings:", font_size='20sp', size_hint=(1, None), height=50)
-        layout.add_widget(siblings_label)
-
-        self.siblings_container = BoxLayout(orientation='vertical', spacing=10)
-        layout.add_widget(self.siblings_container)
-
-        return_button = Button(text="Return", font_size='20sp', size_hint=(1, None), height=50)
-        return_button.bind(on_release=self.go_back)
-        layout.add_widget(return_button)
-
-        self.add_widget(layout)
-
     def on_enter(self):
         try:
-            self.character_label, self.age_label, _ = load_main_character(self.character_label, self.age_label, None)
+            self.ids.character_label, self.ids.age_label, _ = load_main_character(self.ids.character_label, self.ids.age_label, None)
 
-            self.parents_container.clear_widgets()
-            self.siblings_container.clear_widgets()
+            self.ids.parents_container.clear_widgets()
+            self.ids.siblings_container.clear_widgets()
 
             main_character_data = json.load(open(os.path.join(os.getcwd(), 'run', 'main_character.json')))
 
@@ -54,7 +23,7 @@ class SubScreen4(Screen):
                         parent_name = f"{parent_data['first_name']} {parent_data['last_name']}"
                         parent_button = Button(text=f"{parent_name}\n{parent_type.capitalize()}",
                                                font_size='16sp', size_hint=(None, None), height=100)
-                        self.parents_container.add_widget(parent_button)
+                        self.ids.parents_container.add_widget(parent_button)
 
             # Load siblings
             if 'siblings' in main_character_data:
@@ -67,10 +36,10 @@ class SubScreen4(Screen):
                         relationship = "Brother" if gender.lower() == 'male' else "Sister"
                         sibling_button = Button(text=f"{sibling_name}\n{relationship}",
                                                 font_size='16sp', size_hint=(None, None), height=100)
-                        self.siblings_container.add_widget(sibling_button)
+                        self.ids.siblings_container.add_widget(sibling_button)
 
         except FileNotFoundError as e:
-            print(f"Main character file {main_character_filename} does not exist. Unable to load.")
+            print(f"Main character file does not exist. Unable to load.")
 
-    def go_back(self, instance):
+    def go_back(self):
         self.manager.current = 'game'

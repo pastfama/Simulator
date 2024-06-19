@@ -1,26 +1,28 @@
 {
-    "id": "6c078a61-fdc0-4e36-97b8-1bdbb5f28a34",
-    "first_name": "Mehetabel",
-    "last_name": "Willard",
+    "id": "1da4f7e2-bbee-4b1b-ba06-db9307076581",
+    "first_name": "Concettina",
+    "last_name": "Brady",
     "age": 0,
     "traits": {
-        "Health": 9,
-        "Smarts": 97,
-        "Looks": 27,
-        "Happiness": 39
+        "Health": 10,
+        "Smarts": 57,
+        "Looks": 13,
+        "Happiness": 96
     },
-    "money": 6573,
+    "money": 5178,
     "property": "None",
     "relationship": [
-        "Euclid & Ermengarde"
+        "Charlott & Genevieve"
     ],
     "parents": [
         {
-            "father": "26d21f48-5889-49ae-96ba-6e4e0575098e",
-            "mother": "5d4baf4a-1bae-4438-9604-42a72f59b020"
+            "father": "3b01cc0f-9af8-4b0c-b5c7-151a42a105c2",
+            "mother": "5654d26b-d5c4-4e93-aeba-5ec4435b27f3"
         }
     ],
     "siblings": [
-        "c797240b-c5af-46f3-8b5f-1a3bdba51abb"
+        "79bb9bf3-8864-41c5-94e5-fcd4d478ebf2",
+        "8d65f9ba-e5ef-4ac2-be4a-7d531d5bf80f",
+        "61eafcf2-9478-4bc1-a278-a3d8c77bb20a"
     ]
 }

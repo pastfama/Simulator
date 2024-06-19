@@ -4,6 +4,7 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from screens.welcome import WelcomeScreen
 from screens.game import GameScreen
+from kivy.lang import Builder
 from screens.buttons1.subscreen1 import SubScreen1
 from screens.buttons2.subscreen2 import SubScreen2
 from screens.buttons3.subscreen3 import SubScreen3
@@ -13,6 +14,7 @@ from screens.buttons5.subscreen5 import SubScreen5
 class MyApp(App):
     def build(self):
         self.cleanup_run_folder()  # Clean up "run" folder before adding screens
+        Builder.load_file('screens/buttons4/subscreen4.kv')
         sm = ScreenManager()
         sm.add_widget(WelcomeScreen(name='welcome'))
         sm.add_widget(GameScreen(name='game'))
