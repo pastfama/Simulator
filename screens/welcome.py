@@ -12,6 +12,7 @@ from persons.person import Person
 from persons.save_main_character import save_main_character_to_json
 from persons.load_main_character import load_main_character
 from persons.save_person import save_parents_to_json, save_person_to_json
+from persons.generate_siblings import generate_siblings, save_siblings_to_json
 
 class WelcomeScreen(Screen):
     def __init__(self, **kwargs):
@@ -50,8 +51,10 @@ class WelcomeScreen(Screen):
         self.update_graph_with_current_data()
         self.manager.current = 'game'
 
+    # Assuming this is part of your application's UI or logic
     def next_pressed(self, *args):
         # Create a new character with age 0 and depth 2
+        self.cleanup_run_folder()
         new_character = Person(age=0, depth=2)
         new_character.generate_family()
 
@@ -69,12 +72,30 @@ class WelcomeScreen(Screen):
         # Print current widget data (assuming this is a method to debug/print data)
         self.print_current_widget_data()
 
+        # Generate siblings data based on new_character directly (not its dictionary form)
+        siblings_data = generate_siblings(new_character)
+
         # Save the new character to JSON
         save_main_character_to_json(new_character)
         save_parents_to_json(new_character.parents)
+        # Save siblings data
+        save_siblings_to_json(new_character, siblings_data)
 
         # Load the main character to update UI labels (assuming load_main_character updates labels)
         load_main_character(self.character_label, self.age_label, self.bar_graph)
+
+    def cleanup_run_folder(self):
+        run_folder = os.path.join(os.getcwd(), 'run')
+        for filename in os.listdir(run_folder):
+            file_path = os.path.join(run_folder, filename)
+            try:
+                if os.path.isfile(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print(f"Failed to delete {file_path}. Reason: {e}")
+
     def print_current_widget_data(self):
         print(f"Current Character: {self.character_label.text}")
         print(f"Current Age: {self.age_label.text}")

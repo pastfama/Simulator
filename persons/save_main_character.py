@@ -25,6 +25,12 @@ def save_main_character_to_json(main_character):
     # Always save the main character as "main_character.json"
     save_filename = os.path.join(save_dir, "main_character.json")
 
+    # Prepare parents data to save
+    parents_data = [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in main_character.parents]
+
+    # Prepare siblings data to save
+    siblings_data = [{'sibling': sibling['id']} for sibling in main_character.siblings]
+
     # Prepare data to save
     data_to_save = {
         'id': main_character.id,
@@ -35,7 +41,8 @@ def save_main_character_to_json(main_character):
         'money': random.randint(1000, 10000),  # Example: Random money amount
         'property': "None",  # Example: Placeholder for property data
         'relationship': main_character.get_parents_relationships(),  # Using get_parents_relationships method
-        'parents': [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in main_character.parents]  # Only parent UUIDs
+        'parents': parents_data,
+        'siblings': siblings_data
     }
 
     # Save data to JSON file under "run" directory

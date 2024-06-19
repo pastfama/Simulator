@@ -3,15 +3,13 @@ import json
 import random
 import uuid
 import logging
-from persons.save_person import save_person_to_json, save_parents_to_json
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Person:
     MAX_RECURSION_DEPTH = 2
-    MAX_RECURSION_DEPTH = 2
     FERTILE_AGE_MIN = 18
-    FERTILE_AGE_MAX = 45  # Adjust this based on your specific scenario
+    FERTILE_AGE_MAX = 45
 
     def __init__(self, age=None, last_name=None, depth=0):
         self.id = str(uuid.uuid4())
@@ -21,6 +19,7 @@ class Person:
         self.age = age if age is not None else (random.randint(0, 30) if depth == 0 else random.randint(30, 60))
         self.parents = []
         self.parents_relationships = []
+        self.siblings = []  # New attribute to store siblings
         self.traits = self.generate_traits()
         self.depth = depth
 
@@ -79,7 +78,6 @@ class Person:
         father = Person(depth=current_depth + 1)
         mother = Person(depth=current_depth + 1)
 
-        # Ensure the generated parents are within fertile age range
         while father.age < Person.FERTILE_AGE_MIN or father.age > Person.FERTILE_AGE_MAX:
             father.age = random.randint(18, 45)
         while mother.age < Person.FERTILE_AGE_MIN or mother.age > Person.FERTILE_AGE_MAX:
@@ -88,7 +86,6 @@ class Person:
         father.last_name = self.last_name
         mother.last_name = self.last_name
 
-        # Ensure father is male and mother is female
         father.gender = "Male"
         mother.gender = "Female"
 
@@ -98,6 +95,14 @@ class Person:
         })
 
         self.parents_relationships.append(f"{father.first_name} & {mother.first_name}")
+
+        # Generate siblings
+        num_siblings = random.randint(0, 5)  # Adjust the range as per your requirement
+        for _ in range(num_siblings):
+            sibling = Person(depth=current_depth + 1)
+            sibling.last_name = self.last_name
+            sibling.generate_family(current_depth + 1)
+            self.siblings.append(sibling.to_dict())
 
         logging.debug(f'Generated family for {self.first_name}: Father: {father}, Mother: {mother}')
 
@@ -113,15 +118,14 @@ class Person:
             'first_name': self.first_name,
             'last_name': self.last_name,
             'age': self.age,
-            'traits': self.traits
+            'traits': self.traits,
+            'parents': [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in self.parents],
+            'siblings': [{'sibling': sibling['id']} for sibling in self.siblings]  # Include siblings in the dictionary
         }
 
     def save_to_json(self):
-        # Save main character data
-        main_filename = save_person_to_json(self.to_dict(), f"{self.id}.json")
-        logging.info(f'Saved Person object to JSON file: {main_filename}')
-
-        # Save parents' data
+        save_filename = save_person_to_json(self.to_dict(), f"{self.id}.json")
+        logging.info(f'Saved Person object to JSON file: {save_filename}')
         save_parents_to_json([parent['father'] for parent in self.parents])
         save_parents_to_json([parent['mother'] for parent in self.parents])
 
@@ -134,6 +138,7 @@ class Person:
         person.last_name = data.get('last_name', 'Unknown')
         person.age = data.get('age', 0)
         person.parents = data.get('parents', [])
+        person.siblings = data.get('siblings', [])  # Load siblings from data dictionary
         person.traits = data.get('traits', {})
         logging.debug(f'Created Person object from dictionary: {person}')
         return person

@@ -1,23 +1,28 @@
 {
-    "id": "b66f1641-9107-4f75-a28d-bf0f2232cccf",
-    "first_name": "Corey",
-    "last_name": "Dennis",
+    "id": "9f33a3da-1449-47e1-992b-31b3fde619e1",
+    "first_name": "Meggy",
+    "last_name": "Weiss",
     "age": 0,
     "traits": {
-        "Health": 62,
-        "Smarts": 99,
-        "Looks": 56,
-        "Happiness": 66
+        "Health": 37,
+        "Smarts": 21,
+        "Looks": 13,
+        "Happiness": 36
     },
-    "money": 9197,
+    "money": 6699,
     "property": "None",
     "relationship": [
-        "Alexia & Vernice"
+        "Gladis & Alecia"
     ],
     "parents": [
         {
-            "father": "3a45c331-bdee-4f12-9fa2-9849b24bfa78",
-            "mother": "d38c26d7-a6ed-40c2-933c-01d97c1e5381"
+            "father": "77d9c3a0-1ad4-4031-8400-54c2fb4167c1",
+            "mother": "0e94380b-18b8-4d08-afbb-9ae8b26a418a"
         }
+    ],
+    "siblings": [
+        "aafe1b6d-0063-4fa4-b502-bb085b220d92",
+        "724d557e-a4bb-4dbb-ac38-d75b90d60048",
+        "df1f747e-c24e-4421-b475-35892e30fd93"
     ]
 }
