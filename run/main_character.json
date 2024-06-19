@@ -1,28 +1,27 @@
 {
-    "id": "9f33a3da-1449-47e1-992b-31b3fde619e1",
-    "first_name": "Meggy",
-    "last_name": "Weiss",
+    "id": "bb13e3b7-892d-4635-97bd-4a8f2b3a9306",
+    "first_name": "Ignatius",
+    "last_name": "Hurst",
     "age": 0,
     "traits": {
-        "Health": 37,
-        "Smarts": 21,
-        "Looks": 13,
-        "Happiness": 36
+        "Health": 45,
+        "Smarts": 36,
+        "Looks": 11,
+        "Happiness": 43
     },
-    "money": 6699,
+    "money": 7966,
     "property": "None",
     "relationship": [
-        "Gladis & Alecia"
+        "Lorain & Rice"
     ],
     "parents": [
         {
-            "father": "77d9c3a0-1ad4-4031-8400-54c2fb4167c1",
-            "mother": "0e94380b-18b8-4d08-afbb-9ae8b26a418a"
+            "father": "54a132e3-71bb-42c7-a797-574d6f021d95",
+            "mother": "36cee7cb-292c-48fb-9a75-818ccf2cf4a4"
         }
     ],
     "siblings": [
-        "aafe1b6d-0063-4fa4-b502-bb085b220d92",
-        "724d557e-a4bb-4dbb-ac38-d75b90d60048",
-        "df1f747e-c24e-4421-b475-35892e30fd93"
+        "63327f0d-38c7-47d7-b82a-8b0ec269b02e",
+        "89bb96bb-14fb-4016-a15c-6f28b892b024"
     ]
 }

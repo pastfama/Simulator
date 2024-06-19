@@ -4,13 +4,29 @@ import uuid
 import random
 from persons.person import Person  # Assuming Person class is defined in persons/person.py
 
+
 def generate_siblings(person):
+    """
+    Generate a number of sibling objects based on a probability distribution.
+
+    Args:
+    - person: Person object for whom siblings are being generated
+
+    Returns:
+    - siblings: List of sibling objects
+    """
     siblings = []
-    num_siblings = random.randint(0, 5)  # Generate a random number of siblings (0 to 5)
+
+    # Define probabilities for number of siblings
+    probabilities = [0.3, 0.25, 0.2, 0.15, 0.05, 0.05]
+    num_siblings_choices = [0, 1, 2, 3, 4, 5]
+
+    # Sample number of siblings based on defined probabilities
+    num_siblings = random.choices(num_siblings_choices, probabilities)[0]
 
     for _ in range(num_siblings):
-        sibling = Person(depth=person.depth + 1)
-        sibling.generate_family()
+        sibling = Person(depth=person.depth + 1)  # Create a new sibling with incremented depth
+        sibling.generate_family()  # Generate family structure for the sibling
         sibling.traits = {
             'Health': random.randint(0, 100),
             'Smarts': random.randint(0, 100),
