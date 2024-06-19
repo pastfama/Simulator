@@ -1,24 +1,27 @@
 {
-    "id": "ae4b775a-9b03-4481-8c6e-b03a0a791d1e",
-    "first_name": "Michaeline",
-    "last_name": "Leach",
+    "id": "64978dc0-6217-4ddc-874e-ce78538ac5f5",
+    "first_name": "Felicdad",
+    "last_name": "Branch",
     "age": 0,
     "traits": {
-        "Health": 73,
-        "Smarts": 5,
-        "Looks": 48,
-        "Happiness": 9
+        "Health": 29,
+        "Smarts": 66,
+        "Looks": 8,
+        "Happiness": 64
     },
-    "money": 5263,
+    "money": 6162,
     "property": "None",
     "relationship": [
-        "Michal & Demetri"
+        "Erhard & Kristel"
     ],
     "parents": [
         {
-            "father": "c217a87e-03ae-497b-b94a-66799bc7e9b9",
-            "mother": "2d971b2b-16e9-48b3-a52c-220ba64af366"
+            "father": "2135c833-da84-4bdf-8514-a751276f5cef",
+            "mother": "99b1ea52-74f3-4360-8a97-c5477138c245"
         }
     ],
-    "siblings": []
+    "siblings": [
+        "9bc51887-ab10-4062-8ff2-6d6cf3773fc7",
+        "bb906454-8d1a-4074-aebf-68ccbc0bbbe3"
+    ]
 }
