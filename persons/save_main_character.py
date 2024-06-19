@@ -34,7 +34,8 @@ def save_main_character_to_json(main_character):
         'traits': main_character.traits,
         'money': random.randint(1000, 10000),  # Example: Random money amount
         'property': "None",  # Example: Placeholder for property data
-        'relationship': main_character.get_parents_relationships()  # Using get_parents_relationships method
+        'relationship': main_character.get_parents_relationships(),  # Using get_parents_relationships method
+        'parents': [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in main_character.parents]  # Only parent UUIDs
     }
 
     # Save data to JSON file under "run" directory
@@ -43,3 +44,13 @@ def save_main_character_to_json(main_character):
 
     print(f"Saved main character to {save_filename}")
     return save_filename
+
+# Example usage:
+if __name__ == "__main__":
+    logging.debug("Starting the program")
+    person = Person(age=25, last_name="Smith")  # Specifying the age and last name
+    person.create_full_name()
+    person.generate_family()
+    person.save_to_json()
+    save_main_character_to_json(person)
+    logging.debug("Program completed successfully")

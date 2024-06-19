@@ -1,17 +1,23 @@
 {
-    "id": "977f4644-6c0b-4d6f-b69b-a1637b252c7b",
-    "first_name": "Daffy",
-    "last_name": "Larson",
+    "id": "b66f1641-9107-4f75-a28d-bf0f2232cccf",
+    "first_name": "Corey",
+    "last_name": "Dennis",
     "age": 0,
     "traits": {
-        "Health": 17,
-        "Smarts": 52,
-        "Looks": 22,
-        "Happiness": 14
+        "Health": 62,
+        "Smarts": 99,
+        "Looks": 56,
+        "Happiness": 66
     },
-    "money": 3685,
+    "money": 9197,
     "property": "None",
     "relationship": [
-        "Isa & Estele"
+        "Alexia & Vernice"
+    ],
+    "parents": [
+        {
+            "father": "3a45c331-bdee-4f12-9fa2-9849b24bfa78",
+            "mother": "d38c26d7-a6ed-40c2-933c-01d97c1e5381"
+        }
     ]
 }
