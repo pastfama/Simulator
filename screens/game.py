@@ -31,7 +31,7 @@ class GameScreen(Screen):
         button3.bind(on_release=lambda x: self.change_screen('subscreen3'))
         button_layout.add_widget(button3)
 
-        button4 = Button(text="Button 4", font_size='20sp')
+        button4 = Button(text="Relationships", font_size='20sp')
         button4.bind(on_release=lambda x: self.change_screen('subscreen4'))
         button_layout.add_widget(button4)
 

@@ -63,11 +63,13 @@ class SubScreen4(Screen):
                     with open(sibling_filename, 'r') as sf:
                         sibling_data = json.load(sf)
                         sibling_name = f"{sibling_data['first_name']} {sibling_data['last_name']}"
-                        sibling_button = Button(text=f"{sibling_name}\n{', '.join(sibling_data.get('relationship', []))}",
+                        gender = sibling_data.get('gender', 'Unknown')
+                        relationship = "Brother" if gender.lower() == 'male' else "Sister"
+                        sibling_button = Button(text=f"{sibling_name}\n{relationship}",
                                                 font_size='16sp', size_hint=(None, None), height=100)
                         self.siblings_container.add_widget(sibling_button)
 
-        except FileNotFoundError:
+        except FileNotFoundError as e:
             print(f"Main character file {main_character_filename} does not exist. Unable to load.")
 
     def go_back(self, instance):

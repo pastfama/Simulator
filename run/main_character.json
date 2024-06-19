@@ -1,30 +1,26 @@
 {
-    "id": "01bc6e81-1954-410d-8047-cb4a75960db7",
-    "first_name": "Lynn",
-    "last_name": "Wolfe",
+    "id": "6c078a61-fdc0-4e36-97b8-1bdbb5f28a34",
+    "first_name": "Mehetabel",
+    "last_name": "Willard",
     "age": 0,
     "traits": {
-        "Health": 15,
-        "Smarts": 29,
-        "Looks": 54,
-        "Happiness": 58
+        "Health": 9,
+        "Smarts": 97,
+        "Looks": 27,
+        "Happiness": 39
     },
-    "money": 3819,
+    "money": 6573,
     "property": "None",
     "relationship": [
-        "Karisa & Florenza"
+        "Euclid & Ermengarde"
     ],
     "parents": [
         {
-            "father": "42bd0546-c5fd-40e4-8525-2c36dbe22710",
-            "mother": "4985f459-bcb0-419b-b118-6d9aa60acfe9"
+            "father": "26d21f48-5889-49ae-96ba-6e4e0575098e",
+            "mother": "5d4baf4a-1bae-4438-9604-42a72f59b020"
         }
     ],
     "siblings": [
-        "277200c3-0020-4d14-9054-2759ae1d46dc",
-        "d70cccb8-a041-4b90-8481-b9951a2454f2",
-        "9b4c5f86-d39b-46a5-9892-0a2d42a1e80d",
-        "35893be0-f384-433e-a52e-43f392531487",
-        "7b2d4653-ed36-40fa-892e-c2101a8d4ca2"
+        "c797240b-c5af-46f3-8b5f-1a3bdba51abb"
     ]
 }
