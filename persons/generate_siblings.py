@@ -4,12 +4,13 @@ import uuid
 import random
 from persons.person import Person  # Assuming Person class is defined in persons/person.py
 
-def generate_siblings(person):
+def generate_siblings(main_character):
     """
     Generate a number of sibling objects based on a probability distribution.
+    Each sibling will share the same parents as the main_character.
 
     Args:
-    - person: Person object for whom siblings are being generated
+    - main_character: Person object for whom siblings are being generated
 
     Returns:
     - siblings: List of sibling objects
@@ -23,17 +24,24 @@ def generate_siblings(person):
     # Sample number of siblings based on defined probabilities
     num_siblings = random.choices(num_siblings_choices, probabilities)[0]
 
+    # Generate siblings
     for _ in range(num_siblings):
-        sibling = Person(age=random.randint(0, 30), last_name=person.last_name, depth=person.depth + 1)
-        sibling.parents = person.parents  # Assign the main_character's parents to the sibling
-        sibling.generate_family()  # Generate family structure for the sibling
+        sibling = Person(age=random.randint(0, 30), last_name=main_character.last_name, depth=main_character.depth + 1)
 
+        # Assign the same parents as the main_character
+        sibling.parents = main_character.parents
+
+        # Generate family structure for the sibling
+        sibling.generate_family()
+
+        # Assign traits (example data)
         sibling.traits = {
             'Health': random.randint(0, 100),
             'Smarts': random.randint(0, 100),
             'Looks': random.randint(0, 100),
             'Happiness': random.randint(0, 100)
         }
+
         siblings.append(sibling)
 
     return siblings
@@ -44,6 +52,9 @@ def save_siblings_to_json(main_character, siblings):
     os.makedirs(siblings_folder, exist_ok=True)
 
     for sibling in siblings:
+        # Overwrite sibling's parents with main_character's parents
+        sibling.parents = main_character.parents
+
         sibling_data = {
             'id': sibling.id,
             'first_name': sibling.first_name,
@@ -68,13 +79,13 @@ def save_siblings_to_json(main_character, siblings):
         json.dump(main_character_data, f, indent=4)
 
 if __name__ == "__main__":
-    person = Person(age=25, last_name="Smith")  # Example initialization of main character
-    person.create_full_name()
-    person.generate_family()
-    person.save_to_json()  # Saves main character including parents
+    main_character = Person(age=25, last_name="Smith")  # Example initialization of main character
+    main_character.create_full_name()
+    main_character.generate_family()
+    main_character.save_to_json()  # Saves main character including parents
 
     # Generate and save siblings
-    siblings = generate_siblings(person)
-    save_siblings_to_json(person, siblings)
+    siblings = generate_siblings(main_character)
+    save_siblings_to_json(main_character, siblings)
 
     print("Siblings generated and saved successfully.")

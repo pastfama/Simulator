@@ -1,28 +1,27 @@
 {
-    "id": "9f5c9a21-1f73-4fdd-a06c-2afa414dc6b6",
-    "first_name": "Barnie",
-    "last_name": "Ivey",
+    "id": "d33fb7c6-cb16-4fed-af6d-38aa1b7d0b0d",
+    "first_name": "Katherina",
+    "last_name": "Holland",
     "age": 0,
     "traits": {
-        "Health": 52,
-        "Smarts": 64,
-        "Looks": 73,
-        "Happiness": 91
+        "Health": 88,
+        "Smarts": 37,
+        "Looks": 92,
+        "Happiness": 74
     },
-    "money": 4384,
+    "money": 3139,
     "property": "None",
     "relationship": [
-        "Ezekiel & Gerrit"
+        "Cacilie & Stacee"
     ],
     "parents": [
         {
-            "father": "6b22926f-58a5-404c-a993-a7964ee487ef",
-            "mother": "1675a637-bd3c-4956-8ad4-0f65b3401450"
+            "father": "17aa664b-bc64-4f92-8790-29c6d26fc84b",
+            "mother": "0eb91ed7-ef6e-494d-8f27-5ebc1d7edda7"
         }
     ],
     "siblings": [
-        "a5bde309-96cc-4734-9789-25cd0c6824b0",
-        "554e8af4-b3ea-426c-b359-9049785c339d",
-        "70b92931-f9bb-4bdc-8890-7d0c58cfce5f"
+        "0bd05c46-fcb2-4bda-a3c9-4ecfceec98c4",
+        "734e4ada-967b-40da-a4d6-a35c8bbb48b2"
     ]
 }
