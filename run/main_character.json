@@ -1,27 +1,30 @@
 {
-    "id": "d33fb7c6-cb16-4fed-af6d-38aa1b7d0b0d",
-    "first_name": "Katherina",
-    "last_name": "Holland",
+    "id": "01bc6e81-1954-410d-8047-cb4a75960db7",
+    "first_name": "Lynn",
+    "last_name": "Wolfe",
     "age": 0,
     "traits": {
-        "Health": 88,
-        "Smarts": 37,
-        "Looks": 92,
-        "Happiness": 74
+        "Health": 15,
+        "Smarts": 29,
+        "Looks": 54,
+        "Happiness": 58
     },
-    "money": 3139,
+    "money": 3819,
     "property": "None",
     "relationship": [
-        "Cacilie & Stacee"
+        "Karisa & Florenza"
     ],
     "parents": [
         {
-            "father": "17aa664b-bc64-4f92-8790-29c6d26fc84b",
-            "mother": "0eb91ed7-ef6e-494d-8f27-5ebc1d7edda7"
+            "father": "42bd0546-c5fd-40e4-8525-2c36dbe22710",
+            "mother": "4985f459-bcb0-419b-b118-6d9aa60acfe9"
         }
     ],
     "siblings": [
-        "0bd05c46-fcb2-4bda-a3c9-4ecfceec98c4",
-        "734e4ada-967b-40da-a4d6-a35c8bbb48b2"
+        "277200c3-0020-4d14-9054-2759ae1d46dc",
+        "d70cccb8-a041-4b90-8481-b9951a2454f2",
+        "9b4c5f86-d39b-46a5-9892-0a2d42a1e80d",
+        "35893be0-f384-433e-a52e-43f392531487",
+        "7b2d4653-ed36-40fa-892e-c2101a8d4ca2"
     ]
 }

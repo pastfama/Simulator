@@ -1,7 +1,7 @@
 import os
 import json
 
-def load_main_character(character_label, age_label, bar_graph):
+def load_main_character(character_label, age_label, bar_graph=None):
     save_dir = os.path.join(os.getcwd(), 'run')
     main_character_filename = os.path.join(save_dir, "main_character.json")
 
@@ -12,12 +12,11 @@ def load_main_character(character_label, age_label, bar_graph):
             character_label.text = f"Name: {data['first_name']} {data['last_name']}"
             age_label.text = f"Age: {data['age']}"
 
-            # Update bar graph or any other widgets with traits data
-            # Assuming bar_graph.update_characteristics(data['traits']) is defined
-            if 'traits' in data:
-                bar_graph.update_characteristics(data['traits'])
-            else:
-                bar_graph.update_characteristics({})  # Handle case where traits are missing
+            if bar_graph:
+                if 'traits' in data:
+                    bar_graph.update_characteristics(data['traits'])
+                else:
+                    bar_graph.update_characteristics({})  # Handle case where traits are missing
 
         print(f"Loaded main character from {main_character_filename}")
     else:
