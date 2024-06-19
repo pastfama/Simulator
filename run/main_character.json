@@ -1,28 +1,24 @@
 {
-    "id": "1da4f7e2-bbee-4b1b-ba06-db9307076581",
-    "first_name": "Concettina",
-    "last_name": "Brady",
+    "id": "ae4b775a-9b03-4481-8c6e-b03a0a791d1e",
+    "first_name": "Michaeline",
+    "last_name": "Leach",
     "age": 0,
     "traits": {
-        "Health": 10,
-        "Smarts": 57,
-        "Looks": 13,
-        "Happiness": 96
+        "Health": 73,
+        "Smarts": 5,
+        "Looks": 48,
+        "Happiness": 9
     },
-    "money": 5178,
+    "money": 5263,
     "property": "None",
     "relationship": [
-        "Charlott & Genevieve"
+        "Michal & Demetri"
     ],
     "parents": [
         {
-            "father": "3b01cc0f-9af8-4b0c-b5c7-151a42a105c2",
-            "mother": "5654d26b-d5c4-4e93-aeba-5ec4435b27f3"
+            "father": "c217a87e-03ae-497b-b94a-66799bc7e9b9",
+            "mother": "2d971b2b-16e9-48b3-a52c-220ba64af366"
         }
     ],
-    "siblings": [
-        "79bb9bf3-8864-41c5-94e5-fcd4d478ebf2",
-        "8d65f9ba-e5ef-4ac2-be4a-7d531d5bf80f",
-        "61eafcf2-9478-4bc1-a278-a3d8c77bb20a"
-    ]
+    "siblings": []
 }
