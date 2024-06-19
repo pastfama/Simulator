@@ -1,17 +1,17 @@
 {
-    "id": "25cfa659-aa63-4de7-98d6-9a71edd1c6d5",
-    "first_name": "Christi",
-    "last_name": "Reeves",
+    "id": "977f4644-6c0b-4d6f-b69b-a1637b252c7b",
+    "first_name": "Daffy",
+    "last_name": "Larson",
     "age": 0,
     "traits": {
-        "Health": 76,
-        "Smarts": 70,
-        "Looks": 62,
-        "Happiness": 92
+        "Health": 17,
+        "Smarts": 52,
+        "Looks": 22,
+        "Happiness": 14
     },
-    "money": 5369,
+    "money": 3685,
     "property": "None",
     "relationship": [
-        "Jania & Elizabet"
+        "Isa & Estele"
     ]
 }
