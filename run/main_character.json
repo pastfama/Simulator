@@ -1,26 +1,24 @@
 {
-    "id": "54b1677d-a5d5-4436-bc5d-ad6e69583907",
-    "first_name": "Kylie",
-    "last_name": "Patterson",
-    "age": 1,
+    "id": "d3515749-0cfb-4e03-bb65-28cb242cd040",
+    "first_name": "Winna",
+    "last_name": "Washington",
+    "age": 6,
     "traits": {
-        "Health": 75,
-        "Smarts": 95,
-        "Looks": 21,
-        "Happiness": 84
+        "Health": 56,
+        "Smarts": 48,
+        "Looks": 35,
+        "Happiness": 29
     },
-    "money": 5482,
+    "money": 6767,
     "property": "None",
     "relationship": [
-        "Robina & Bellanca"
+        "John & Correy"
     ],
     "parents": [
         {
-            "father": "3db12de9-549d-40d0-8a34-0469d51fbb1f",
-            "mother": "288bc83a-fa0c-4e68-8efb-2387bc992e5a"
+            "father": "8ad470fe-492b-4ce3-b5b1-5acf5295e1a8",
+            "mother": "aad5e8af-847e-4fa3-9bb5-bcdc06ac3f0a"
         }
     ],
-    "siblings": [
-        "e496cdad-0b86-4f86-afc7-1b398d189dbe"
-    ]
+    "siblings": []
 }
