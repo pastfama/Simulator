@@ -1,24 +1,26 @@
 {
-    "id": "d3515749-0cfb-4e03-bb65-28cb242cd040",
-    "first_name": "Winna",
-    "last_name": "Washington",
-    "age": 6,
+    "id": "0135cfc5-dd1d-4704-ae4c-226af01fefb8",
+    "first_name": "Anson",
+    "last_name": "McPherson",
+    "age": 26,
     "traits": {
-        "Health": 56,
-        "Smarts": 48,
-        "Looks": 35,
-        "Happiness": 29
+        "Health": 90,
+        "Smarts": 0,
+        "Looks": 31,
+        "Happiness": 34
     },
-    "money": 6767,
+    "money": 5730,
     "property": "None",
     "relationship": [
-        "John & Correy"
+        "Gerrard & Ichabod"
     ],
     "parents": [
         {
-            "father": "8ad470fe-492b-4ce3-b5b1-5acf5295e1a8",
-            "mother": "aad5e8af-847e-4fa3-9bb5-bcdc06ac3f0a"
+            "father": "f3b9b8c7-60a5-40ad-b82d-0d8296dbda34",
+            "mother": "08ffed25-5887-43e1-bfe8-e5588cc07311"
         }
     ],
-    "siblings": []
+    "siblings": [
+        "677bb79f-42c4-48b0-8092-c8a986cb1097"
+    ]
 }
