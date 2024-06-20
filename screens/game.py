@@ -1,5 +1,6 @@
 import os
-from kivy.uix.screenmanager import Screen
+import random
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
@@ -59,7 +60,39 @@ class GameScreen(Screen):
 
     def on_enter(self):
         # Load main character data when screen is entered
-        load_main_character(self.character_label, self.age_label, self.bar_graph)
+        app = App.get_running_app()
+        game_screen = app.root.get_screen('game')
+
+        if int(game_screen.age_label.text.split(': ')[1]) == 0:
+            # Age is 0, generate a birth explanation
+            birth_explanation = self.generate_birth_explanation()
+            game_screen.text_output.text += f"\nBirth Explanation: {birth_explanation}\n"
+
+        load_main_character(game_screen.character_label, game_screen.age_label, game_screen.bar_graph)
+
+    def generate_birth_explanation(self):
+        # Define paths to the birth explanation text files
+        serious_file = os.path.join("assets", "birth", "serious.txt")
+        funny_file = os.path.join("assets", "birth", "funny.txt")
+
+        # Read lines from the text files
+        serious_explanations = self.read_birth_explanations(serious_file)
+        funny_explanations = self.read_birth_explanations(funny_file)
+
+        # Randomly choose between serious and funny explanations
+        if random.random() < 0.5:
+            return random.choice(serious_explanations)
+        else:
+            return random.choice(funny_explanations)
+
+    def read_birth_explanations(self, file_path):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                explanations = file.readlines()
+                return [line.strip() for line in explanations if line.strip()]
+        except FileNotFoundError:
+            print(f"Error: File '{file_path}' not found.")
+            return []
 
     def save_main_character(self, main_character):
         # Save main character data when needed
@@ -67,9 +100,13 @@ class GameScreen(Screen):
 
     def print_current_widget_data(self):
         # Example function to print widget data for debugging
-        print(f"Current Character: {self.character_label.text}")
-        print(f"Current Age: {self.age_label.text}")
-        # Add more prints for other widgets as needed
+        output = f"Current Character: {self.character_label.text}\nCurrent Age: {self.age_label.text}\n"
+        self.text_output.text += output
+
+        # Save to file
+        file_path = os.path.join(os.getcwd(), "run", "game.txt")
+        with open(file_path, 'a') as file:
+            file.write(output)
 
 class YourApp(App):
     def build(self):

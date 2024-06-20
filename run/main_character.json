@@ -1,27 +1,24 @@
 {
-    "id": "64978dc0-6217-4ddc-874e-ce78538ac5f5",
-    "first_name": "Felicdad",
-    "last_name": "Branch",
+    "id": "aa36d5c7-4594-4540-8a34-46ba63ed52d0",
+    "first_name": "Collins",
+    "last_name": "Lamm",
     "age": 0,
     "traits": {
-        "Health": 29,
-        "Smarts": 66,
-        "Looks": 8,
-        "Happiness": 64
+        "Health": 20,
+        "Smarts": 94,
+        "Looks": 77,
+        "Happiness": 70
     },
-    "money": 6162,
+    "money": 1932,
     "property": "None",
     "relationship": [
-        "Erhard & Kristel"
+        "Gaynor & Iris"
     ],
     "parents": [
         {
-            "father": "2135c833-da84-4bdf-8514-a751276f5cef",
-            "mother": "99b1ea52-74f3-4360-8a97-c5477138c245"
+            "father": "fa4972a1-4590-4c4a-862b-ff01849c91e3",
+            "mother": "81c49ec8-7c50-41f6-a4e7-cbada2e18bb1"
         }
     ],
-    "siblings": [
-        "9bc51887-ab10-4062-8ff2-6d6cf3773fc7",
-        "bb906454-8d1a-4074-aebf-68ccbc0bbbe3"
-    ]
+    "siblings": []
 }
