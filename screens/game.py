@@ -9,6 +9,7 @@ from kivy.app import App
 from screens.widgets.bargraph import BarGraphWidget
 from persons.load_main_character import load_main_character
 from persons.save_main_character import save_main_character_to_json  # Import save_main_character_to_json function
+from buttons.button3 import Button3
 
 class GameScreen(Screen):
     def __init__(self, **kwargs):
@@ -28,9 +29,11 @@ class GameScreen(Screen):
         button2.bind(on_release=lambda x: self.change_screen('subscreen2'))
         button_layout.add_widget(button2)
 
-        button3 = Button(text="Button 3", font_size='20sp')
-        button3.bind(on_release=lambda x: self.change_screen('subscreen3'))
-        button_layout.add_widget(button3)
+        self.character_label = Label(text="Name: ", font_size='20sp', size_hint=(0.6, 1))
+        self.age_label = Label(text="Age: 0", font_size='20sp', size_hint=(0.4, 1))  # Initial age is 0
+
+        button3 = Button3(self.character_label, self.age_label)
+        layout.add_widget(button3)
 
         button4 = Button(text="Relationships", font_size='20sp')
         button4.bind(on_release=lambda x: self.change_screen('subscreen4'))
@@ -43,8 +46,6 @@ class GameScreen(Screen):
         layout.add_widget(button_layout)
 
         info_layout = BoxLayout(size_hint=(1, None), height=50, orientation='horizontal', spacing=10)
-        self.character_label = Label(text="Name: ", font_size='20sp', size_hint=(0.6, 1))
-        self.age_label = Label(text="Age: 0", font_size='20sp', size_hint=(0.4, 1))  # Initial age is 0
         info_layout.add_widget(self.character_label)
         info_layout.add_widget(self.age_label)
         layout.add_widget(info_layout)

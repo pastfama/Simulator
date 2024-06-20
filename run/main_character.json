@@ -1,29 +1,30 @@
 {
-    "id": "e779e77e-9b1d-4e81-96d9-e4c7576a998d",
-    "first_name": "Sena",
-    "last_name": "Hutchinson",
-    "age": 0,
+    "id": "b65dfa70-b828-450d-8014-be304f1ffc10",
+    "first_name": "Jacquetta",
+    "last_name": "Silver",
+    "age": 5,
     "traits": {
-        "Health": 92,
-        "Smarts": 3,
-        "Looks": 37,
-        "Happiness": 64
+        "Health": 93,
+        "Smarts": 18,
+        "Looks": 78,
+        "Happiness": 23
     },
-    "money": 1138,
+    "money": 6760,
     "property": "None",
     "relationship": [
-        "Karoline & Sheridan"
+        "Kalinda & Jabez"
     ],
     "parents": [
         {
-            "father": "3dad653b-2ccd-4b54-a204-9fe21adb183a",
-            "mother": "bc525671-aba8-4f57-affe-870b0b91aa40"
+            "father": "5137c956-998f-4a85-9bf2-e9fab011779a",
+            "mother": "974b6011-90ad-4275-ba80-3e3fddd71fb2"
         }
     ],
     "siblings": [
-        "c38bd5c8-e646-43b4-b1bb-5659af995894",
-        "b6da85f7-f529-4408-9d27-8cfffa18b4dd",
-        "4091b963-b81b-43c4-98d6-c1c10def3e23",
-        "09dfc414-99eb-4690-8019-441df8e2ff36"
+        "752acfc3-4a10-4cd5-9c79-88d5a648456c",
+        "c9bfcd3b-82a7-49df-94cc-d34c785602b3",
+        "84bd35e6-f279-4712-8caa-d3c0b8ec42c5",
+        "c5f8ce09-bb3a-4a8e-a1c7-016e20d304c5",
+        "639f3a66-d1cd-4c1a-afd8-6802ca9e3d09"
     ]
 }
