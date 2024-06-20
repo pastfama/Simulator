@@ -33,7 +33,7 @@ class GameScreen(Screen):
         self.age_label = Label(text="Age: 0", font_size='20sp', size_hint=(0.4, 1))  # Initial age is 0
 
         button3 = Button3(self.character_label, self.age_label)
-        layout.add_widget(button3)
+        button_layout.add_widget(button3)
 
         button4 = Button(text="Relationships", font_size='20sp')
         button4.bind(on_release=lambda x: self.change_screen('subscreen4'))

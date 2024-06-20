@@ -1,30 +1,26 @@
 {
-    "id": "b65dfa70-b828-450d-8014-be304f1ffc10",
-    "first_name": "Jacquetta",
-    "last_name": "Silver",
-    "age": 5,
+    "id": "54b1677d-a5d5-4436-bc5d-ad6e69583907",
+    "first_name": "Kylie",
+    "last_name": "Patterson",
+    "age": 1,
     "traits": {
-        "Health": 93,
-        "Smarts": 18,
-        "Looks": 78,
-        "Happiness": 23
+        "Health": 75,
+        "Smarts": 95,
+        "Looks": 21,
+        "Happiness": 84
     },
-    "money": 6760,
+    "money": 5482,
     "property": "None",
     "relationship": [
-        "Kalinda & Jabez"
+        "Robina & Bellanca"
     ],
     "parents": [
         {
-            "father": "5137c956-998f-4a85-9bf2-e9fab011779a",
-            "mother": "974b6011-90ad-4275-ba80-3e3fddd71fb2"
+            "father": "3db12de9-549d-40d0-8a34-0469d51fbb1f",
+            "mother": "288bc83a-fa0c-4e68-8efb-2387bc992e5a"
         }
     ],
     "siblings": [
-        "752acfc3-4a10-4cd5-9c79-88d5a648456c",
-        "c9bfcd3b-82a7-49df-94cc-d34c785602b3",
-        "84bd35e6-f279-4712-8caa-d3c0b8ec42c5",
-        "c5f8ce09-bb3a-4a8e-a1c7-016e20d304c5",
-        "639f3a66-d1cd-4c1a-afd8-6802ca9e3d09"
+        "e496cdad-0b86-4f86-afc7-1b398d189dbe"
     ]
 }
