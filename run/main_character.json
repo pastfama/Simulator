@@ -1,24 +1,29 @@
 {
-    "id": "aa36d5c7-4594-4540-8a34-46ba63ed52d0",
-    "first_name": "Collins",
-    "last_name": "Lamm",
+    "id": "e779e77e-9b1d-4e81-96d9-e4c7576a998d",
+    "first_name": "Sena",
+    "last_name": "Hutchinson",
     "age": 0,
     "traits": {
-        "Health": 20,
-        "Smarts": 94,
-        "Looks": 77,
-        "Happiness": 70
+        "Health": 92,
+        "Smarts": 3,
+        "Looks": 37,
+        "Happiness": 64
     },
-    "money": 1932,
+    "money": 1138,
     "property": "None",
     "relationship": [
-        "Gaynor & Iris"
+        "Karoline & Sheridan"
     ],
     "parents": [
         {
-            "father": "fa4972a1-4590-4c4a-862b-ff01849c91e3",
-            "mother": "81c49ec8-7c50-41f6-a4e7-cbada2e18bb1"
+            "father": "3dad653b-2ccd-4b54-a204-9fe21adb183a",
+            "mother": "bc525671-aba8-4f57-affe-870b0b91aa40"
         }
     ],
-    "siblings": []
+    "siblings": [
+        "c38bd5c8-e646-43b4-b1bb-5659af995894",
+        "b6da85f7-f529-4408-9d27-8cfffa18b4dd",
+        "4091b963-b81b-43c4-98d6-c1c10def3e23",
+        "09dfc414-99eb-4690-8019-441df8e2ff36"
+    ]
 }

@@ -63,12 +63,27 @@ class GameScreen(Screen):
         app = App.get_running_app()
         game_screen = app.root.get_screen('game')
 
-        if int(game_screen.age_label.text.split(': ')[1]) == 0:
-            # Age is 0, generate a birth explanation
-            birth_explanation = self.generate_birth_explanation()
-            game_screen.text_output.text += f"\nBirth Explanation: {birth_explanation}\n"
+        current_age = int(game_screen.age_label.text.split(': ')[1])
+
+        if current_age == 0:
+            if "You were born." not in game_screen.text_output.text:
+                birth_explanation = self.generate_birth_explanation()
+                game_screen.text_output.text += f"{birth_explanation}\nYou were born."
 
         load_main_character(game_screen.character_label, game_screen.age_label, game_screen.bar_graph)
+
+        # Save text to file when entering the screen
+        self.save_text_to_file()
+
+    def save_text_to_file(self):
+        text_to_save = self.text_output.text
+        file_path = os.path.join(os.getcwd(), "run", "game_text.txt")
+        try:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(text_to_save)
+            print(f"Saved text to {file_path}")
+        except IOError as e:
+            print(f"Error saving file: {e}")
 
     def generate_birth_explanation(self):
         # Define paths to the birth explanation text files
