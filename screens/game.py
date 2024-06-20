@@ -8,8 +8,7 @@ from kivy.uix.button import Button
 from kivy.app import App
 from screens.widgets.bargraph import BarGraphWidget
 from persons.load_main_character import load_main_character
-from persons.save_main_character import save_main_character_to_json  # Import save_main_character_to_json function
-from buttons.button3 import Button3
+from persons.save_main_character import save_main_character_to_json
 import json
 
 class GameScreen(Screen):
@@ -34,7 +33,7 @@ class GameScreen(Screen):
         self.age_label = Label(text="Age: 0", font_size='20sp', size_hint=(0.4, 1))  # Initial age is 0
 
         button3 = Button(text="Age Up", font_size='20sp')
-        button3.bind(on_release= self.age_button_pressed)
+        button3.bind(on_release=self.age_button_pressed)
         button_layout.add_widget(button3)
 
         button4 = Button(text="Relationships", font_size='20sp')
@@ -173,6 +172,11 @@ class GameScreen(Screen):
             # Update the text output with the new age
             current_age = int(self.age_label.text.split(': ')[1])
             self.text_output.text += f"\nAge: {current_age}"
+
+            # Notify SubScreen5 of the age update
+            sub_screen5 = self.manager.get_screen('subscreen5')
+            if sub_screen5:
+                sub_screen5.on_age_updated(self)
 
         except Exception as e:
             print(f'Error: {e}')

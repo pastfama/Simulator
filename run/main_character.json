@@ -1,23 +1,23 @@
 {
-    "id": "d3515749-0cfb-4e03-bb65-28cb242cd040",
-    "first_name": "Winna",
-    "last_name": "Washington",
-    "age": 6,
+    "id": "d59e09ea-b706-4666-b530-f45d3491eb3d",
+    "first_name": "Howie",
+    "last_name": "Bean",
+    "age": 11,
     "traits": {
-        "Health": 56,
-        "Smarts": 48,
-        "Looks": 35,
-        "Happiness": 29
+        "Health": 39,
+        "Smarts": 42,
+        "Looks": 52,
+        "Happiness": 14
     },
-    "money": 6767,
+    "money": 8846,
     "property": "None",
     "relationship": [
-        "John & Correy"
+        "Delilah & Carlos"
     ],
     "parents": [
         {
-            "father": "8ad470fe-492b-4ce3-b5b1-5acf5295e1a8",
-            "mother": "aad5e8af-847e-4fa3-9bb5-bcdc06ac3f0a"
+            "father": "d85b3004-3f61-43d8-b32f-932b121d29b5",
+            "mother": "749d5e94-13e2-48dd-a061-23cbaca3436c"
         }
     ],
     "siblings": []
