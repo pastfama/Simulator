@@ -3,8 +3,17 @@
 <GameScreen>:
     BoxLayout:
         orientation: 'vertical'
-        padding: 10, 10
-        spacing: 10
+
+        TextInput:
+            id: readonly_widget
+            readonly: True
+            size_hint: 1, 0.4
+
+        # Other widgets and layout configurations for your game screen
+
+
+        # Other widgets and layout configurations for your game screen
+
 
         Label:
             text: root.character_label.text
@@ -27,3 +36,4 @@
                 on_release: root.save_game(self)
 
             # Add your other buttons here as needed
+

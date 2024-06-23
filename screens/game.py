@@ -16,8 +16,10 @@ class GameScreen(Screen):
         super(GameScreen, self).__init__(**kwargs)
         layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
 
-        self.text_output = TextInput(readonly=True, size_hint=(1, 0.4))
-        layout.add_widget(self.text_output)
+        self.readonly_widget = TextInput(readonly=True, size_hint=(1, 0.4))
+        self.readonly_widget.id = 'readonly_widget'
+        self.ids.readonly_widget = self.readonly_widget  # Ensure it's registered in ids
+        layout.add_widget(self.readonly_widget)
 
         button_layout = BoxLayout(size_hint=(1, None), height=50, orientation='horizontal', spacing=10)
 
@@ -40,7 +42,7 @@ class GameScreen(Screen):
         button4.bind(on_release=lambda x: self.change_screen('subscreen4'))
         button_layout.add_widget(button4)
 
-        button5 = Button(text="Button 5", font_size='20sp')
+        button5 = Button(text="Activities", font_size='20sp')
         button5.bind(on_release=lambda x: self.change_screen('subscreen5'))
         button_layout.add_widget(button5)
 
@@ -68,9 +70,9 @@ class GameScreen(Screen):
         current_age = int(game_screen.age_label.text.split(': ')[1])
 
         if current_age == 0:
-            if "You were born." not in game_screen.text_output.text:
+            if "You were born." not in game_screen.readonly_widget.text:
                 birth_explanation = self.generate_birth_explanation()
-                game_screen.text_output.text += f"{birth_explanation}\nYou were born."
+                game_screen.readonly_widget.text += f"{birth_explanation}\nYou were born."
 
         load_main_character(game_screen.character_label, game_screen.age_label, game_screen.bar_graph)
 
@@ -78,7 +80,7 @@ class GameScreen(Screen):
         self.save_text_to_file()
 
     def save_text_to_file(self):
-        text_to_save = self.text_output.text
+        text_to_save = self.readonly_widget.text
         file_path = os.path.join(os.getcwd(), "run", "game_text.txt")
         try:
             with open(file_path, 'w', encoding='utf-8') as file:
@@ -118,10 +120,10 @@ class GameScreen(Screen):
     def print_current_widget_data(self):
         # Example function to print widget data for debugging
         output = f"Current Character: {self.character_label.text}\nCurrent Age: {self.age_label.text}\n"
-        self.text_output.text += output
+        self.readonly_widget.text += output
 
         # Save to file
-        file_path = os.path.join(os.getcwd(), "run", "game.txt")
+        file_path = os.path.join(os.getcwd(), "run", "game_text.txt")
         with open(file_path, 'a') as file:
             file.write(output)
 
@@ -171,7 +173,7 @@ class GameScreen(Screen):
 
             # Update the text output with the new age
             current_age = int(self.age_label.text.split(': ')[1])
-            self.text_output.text += f"\nAge: {current_age}"
+            self.readonly_widget.text += f"\nAge: {current_age}"
 
             # Notify SubScreen5 of the age update
             sub_screen5 = self.manager.get_screen('subscreen5')
