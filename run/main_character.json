@@ -1,24 +1,26 @@
 {
-    "id": "d59e09ea-b706-4666-b530-f45d3491eb3d",
-    "first_name": "Howie",
-    "last_name": "Bean",
-    "age": 11,
+    "id": "4a76adfb-c09e-4953-bdec-82bf49331e1b",
+    "first_name": "Tabitha",
+    "last_name": "Fernandez",
+    "age": 0,
     "traits": {
-        "Health": 39,
-        "Smarts": 42,
-        "Looks": 52,
-        "Happiness": 14
+        "Health": 29,
+        "Smarts": 47,
+        "Looks": 32,
+        "Happiness": 21
     },
-    "money": 8846,
+    "money": 9551,
     "property": "None",
     "relationship": [
-        "Delilah & Carlos"
+        "Inge & Jodi"
     ],
     "parents": [
         {
-            "father": "d85b3004-3f61-43d8-b32f-932b121d29b5",
-            "mother": "749d5e94-13e2-48dd-a061-23cbaca3436c"
+            "father": "eda6c3f0-0917-4069-bdf0-d1dd36775026",
+            "mother": "f970efb6-1f1a-4905-bc4e-02558f6dde7c"
         }
     ],
-    "siblings": []
+    "siblings": [
+        "3271e64f-297a-4fcf-a02f-d37f8cbea468"
+    ]
 }
