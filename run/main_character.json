@@ -1,26 +1,30 @@
 {
-    "id": "4a76adfb-c09e-4953-bdec-82bf49331e1b",
-    "first_name": "Tabitha",
-    "last_name": "Fernandez",
+    "id": "75a2bd5a-f690-4b81-a0e0-d1cc2a3faff4",
+    "first_name": "Torry",
+    "last_name": "Strauss",
     "age": 0,
     "traits": {
-        "Health": 29,
-        "Smarts": 47,
-        "Looks": 32,
-        "Happiness": 21
+        "Health": 68,
+        "Smarts": 49,
+        "Looks": 13,
+        "Happiness": 66
     },
-    "money": 9551,
+    "money": 7582,
     "property": "None",
     "relationship": [
-        "Inge & Jodi"
+        "Obie & Fraser"
     ],
     "parents": [
         {
-            "father": "eda6c3f0-0917-4069-bdf0-d1dd36775026",
-            "mother": "f970efb6-1f1a-4905-bc4e-02558f6dde7c"
+            "father": "87dd06a0-e6c7-42e1-991e-7b42c24a0570",
+            "mother": "126c31ad-5e96-44d3-9079-f26f0d51e013",
+            "relationship_health": 9
         }
     ],
     "siblings": [
-        "3271e64f-297a-4fcf-a02f-d37f8cbea468"
+        {
+            "sibling": "6e62e437-d21d-4b72-953b-db19d9d55f33",
+            "relationship_health": 3
+        }
     ]
 }

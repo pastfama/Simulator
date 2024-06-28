@@ -25,10 +25,30 @@ def save_main_character_to_json(main_character):
     save_filename = os.path.join(save_dir, "main_character.json")
 
     # Prepare parents data to save
-    parents_data = [{'father': parent['father']['id'], 'mother': parent['mother']['id']} for parent in main_character.parents]
+    parents_data = []
+    for parent in main_character.parents:
+        if isinstance(parent, dict) and 'father' in parent and 'mother' in parent:
+            father_id = parent['father'].get('id', 'Unknown')
+            mother_id = parent['mother'].get('id', 'Unknown')
+            relationship_health = random.randint(0, 100)  # Random relationship health
+            parents_data.append({
+                'father': father_id,
+                'mother': mother_id,
+                'relationship_health': relationship_health
+            })
+        else:
+            print(f"Unexpected parent data format: {parent}")
 
-    # Ensure siblings are Person objects and collect their IDs
-    siblings_data = [{'sibling': sibling.id} for sibling in main_character.siblings if isinstance(sibling, Person)]
+    # Ensure siblings are Person objects and collect their IDs with relationship health
+    siblings_data = []
+    for sibling in main_character.siblings:
+        if isinstance(sibling, Person):
+            siblings_data.append({
+                'sibling': sibling.id,
+                'relationship_health': random.randint(0, 100)  # Random relationship health
+            })
+        else:
+            print(f"Unexpected sibling data format: {sibling}")
 
     # Prepare data to save
     data_to_save = {
@@ -52,13 +72,19 @@ def save_main_character_to_json(main_character):
     return save_filename
 
 # Example usage:
+def generate_siblings(main_character):
+    # This function should generate sibling Person objects for the main character
+    siblings = []
+    # Add logic to create sibling objects
+    return siblings
+
 if __name__ == "__main__":
-    person = Person(age=25, last_name="Smith")  # Example initialization of main character
+    person = Person(age=25, first_name="John", last_name="Smith")  # Example initialization of main character
     person.create_full_name()
     person.generate_family()
     person.save_to_json()  # Saves main character including parents
 
-    # Generate and save siblings (assuming this is done elsewhere)
+    # Generate and save siblings
     siblings = generate_siblings(person)
     for sibling in siblings:
         sibling.save_to_json()  # Save each sibling to JSON file
