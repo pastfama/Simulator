@@ -24,6 +24,7 @@ class Person:
         self.parents_relationships = []
         self.siblings = []  # New attribute to store siblings
         self.traits = self.generate_traits()
+        self.school = {}  # New attribute to store school data
         self.depth = depth
 
         logging.debug(f'Initialized Person object: {self}')
@@ -140,7 +141,8 @@ class Person:
             'age': self.age,
             'traits': self.traits,
             'parents': parents_data,
-            'siblings': siblings_data
+            'siblings': siblings_data,
+            'school': self.school  # Include school data
         }
 
     def save_to_json(self):
@@ -160,6 +162,7 @@ class Person:
         person.parents = data.get('parents', [])
         person.siblings = data.get('siblings', [])  # Load siblings from data dictionary
         person.traits = data.get('traits', {})
+        person.school = data.get('school', {})  # Load school data
         logging.debug(f'Created Person object from dictionary: {person}')
         return person
 

@@ -23,9 +23,9 @@ class GameScreen(Screen):
 
         button_layout = BoxLayout(size_hint=(1, None), height=50, orientation='horizontal', spacing=10)
 
-        button1 = Button(text="Button 1", font_size='20sp')
-        button1.bind(on_release=lambda x: self.change_screen('subscreen1'))
-        button_layout.add_widget(button1)
+        self.button1 = Button(text="Button 1", font_size='20sp')
+        self.button1.bind(on_release=lambda x: self.change_screen('subscreen1'))
+        button_layout.add_widget(self.button1)
 
         button2 = Button(text="Button 2", font_size='20sp')
         button2.bind(on_release=lambda x: self.change_screen('subscreen2'))
@@ -78,6 +78,9 @@ class GameScreen(Screen):
 
         # Save text to file when entering the screen
         self.save_text_to_file()
+
+        # Update button text based on the age
+        self.update_button_text()
 
     def save_text_to_file(self):
         text_to_save = self.readonly_widget.text
@@ -180,8 +183,28 @@ class GameScreen(Screen):
             if sub_screen5:
                 sub_screen5.on_age_updated(self)
 
+            # Update button text based on the new age
+            self.update_button_text()
+
         except Exception as e:
             print(f'Error: {e}')
+
+    def update_button_text(self):
+        try:
+            with open('run/main_character.json') as f:
+                data = json.load(f)
+                age = data.get('age', 0)
+        except (FileNotFoundError, json.JSONDecodeError):
+            age = 0
+
+        # Update the button text based on the age
+        if age <= 5:
+            self.button1.text = "Infant"
+        elif 6 <= age <= 17:
+            self.button1.text = "School"
+        elif age >= 18:
+            self.button1.text = "Work"
+
 
 class YourApp(App):
     def build(self):

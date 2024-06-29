@@ -61,7 +61,8 @@ def save_main_character_to_json(main_character):
         'property': "None",  # Example: Placeholder for property data
         'relationship': main_character.get_parents_relationships(),  # Using get_parents_relationships method
         'parents': parents_data,
-        'siblings': siblings_data
+        'siblings': siblings_data,
+        'school': main_character.school  # Store school data
     }
 
     # Save data to JSON file under "run" directory

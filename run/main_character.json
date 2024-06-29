@@ -1,30 +1,37 @@
 {
-    "id": "75a2bd5a-f690-4b81-a0e0-d1cc2a3faff4",
-    "first_name": "Torry",
-    "last_name": "Strauss",
-    "age": 0,
+    "id": "417caf2e-4a1b-481a-966d-36cb2e6c7b20",
+    "first_name": "Mauricio",
+    "last_name": "Cates",
+    "age": 16,
     "traits": {
-        "Health": 68,
-        "Smarts": 49,
-        "Looks": 13,
-        "Happiness": 66
+        "Health": 25,
+        "Smarts": 94,
+        "Looks": 99,
+        "Happiness": 32
     },
-    "money": 7582,
+    "money": 4165,
     "property": "None",
     "relationship": [
-        "Obie & Fraser"
+        "Pieter & Wojciech"
     ],
     "parents": [
         {
-            "father": "87dd06a0-e6c7-42e1-991e-7b42c24a0570",
-            "mother": "126c31ad-5e96-44d3-9079-f26f0d51e013",
-            "relationship_health": 9
+            "father": "638ea8cc-b5f0-4983-86ea-fce4fa9d580d",
+            "mother": "f406f38a-e8ad-4186-80b3-9d6affb6f2dd",
+            "relationship_health": 0
         }
     ],
     "siblings": [
         {
-            "sibling": "6e62e437-d21d-4b72-953b-db19d9d55f33",
-            "relationship_health": 3
+            "sibling": "a4108136-4bb9-419b-ae71-52353b44a84f",
+            "relationship_health": 100
+        },
+        {
+            "sibling": "fec44e2f-dbee-42e1-aa9e-b2ca700bb6ec",
+            "relationship_health": 35
         }
-    ]
+    ],
+    "school": {
+        "elementary": "Jefferson Elementary School"
+    }
 }
