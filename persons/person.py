@@ -90,25 +90,9 @@ class Person:
         else:
             return 'F'
 
-    def read_json(self, file_path):
-        try:
-            with open(file_path, 'r') as file:
-                data = json.load(file)
-            return data
-        except (FileNotFoundError, json.JSONDecodeError):
-            return {}
-
-    def write_json(self, file_path, data):
-        with open(file_path, 'w') as file:
-            json.dump(data, file, indent=4)
-
-
     def update_smarts(self, new_smarts):
-        data = self.read_json('run/main_character.json')
-        person = Person.from_dict(data)  # Create a Person object from the existing data
-        person.update_smarts(new_smarts)  # Update the smarts trait and recalculate grades
-        self.write_json('run/main_character.json', person.to_dict())  # Save updated data
-        self.update_grades_label()  # Update the grades label with new grades
+        self.traits['Smarts'] = new_smarts
+        self.grades = self.generate_grades()
 
     def create_full_name(self):
         full_name = f"{self.first_name} {self.last_name}"

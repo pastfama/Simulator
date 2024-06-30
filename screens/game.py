@@ -9,7 +9,9 @@ from kivy.app import App
 from screens.widgets.bargraph import BarGraphWidget
 from persons.load_main_character import load_main_character
 from persons.save_main_character import save_main_character_to_json
+from persons.person import Person  # Ensure this import is correct and points to your Person class
 import json
+
 
 class GameScreen(Screen):
     def __init__(self, **kwargs):
@@ -60,11 +62,15 @@ class GameScreen(Screen):
 
     def change_screen(self, screen_name):
         app = App.get_running_app()
-        app.root.current = screen_name
+        if app.root:  # Ensure root is set
+            app.root.current = screen_name
 
     def on_enter(self):
-        # Load main character data when screen is entered
+        # Ensure app.root is available
         app = App.get_running_app()
+        if not app.root:
+            return  # Exit if root is not ready
+
         game_screen = app.root.get_screen('game')
 
         current_age = int(game_screen.age_label.text.split(': ')[1])
@@ -147,6 +153,12 @@ class GameScreen(Screen):
     def update_age(self, file_path):
         data = self.read_json(file_path)
         data = self.increase_age(data)
+
+        # Update the smarts and grades based on the age increase
+        person = Person.from_dict(data)  # Create a Person object from the existing data
+        person.update_smarts(person.traits['Smarts'])  # Update smarts to recalculate grades
+        data['grades'] = person.grades  # Ensure grades are included
+
         self.write_json(file_path, data)
         return data
 
@@ -213,6 +225,7 @@ class YourApp(App):
         screen_manager.add_widget(game_screen)
 
         return screen_manager
+
 
 if __name__ == '__main__':
     YourApp().run()

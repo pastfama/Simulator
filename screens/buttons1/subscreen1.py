@@ -92,6 +92,7 @@ class SubScreen1(Screen):
         if 'school' not in data:
             data['school'] = {}
 
+        # Ensure school names are assigned at the correct ages
         if age == 6 and 'elementary' not in data['school']:
             data['school']['elementary'] = random.choice(elementary_school_names)
             self.write_json('run/main_character.json', data)
@@ -104,13 +105,15 @@ class SubScreen1(Screen):
             data['school']['high'] = random.choice(high_school_names)
             self.write_json('run/main_character.json', data)
 
-        school_name = ""
+        # Update the school label based on the age ranges
         if age in range(6, 10):
             school_name = data['school'].get('elementary', 'Elementary School')
         elif age in range(10, 14):
             school_name = data['school'].get('middle', 'Middle School')
         elif age in range(14, 19):
             school_name = data['school'].get('high', 'High School')
+        else:
+            school_name = 'No School Assigned'
 
         self.school_label.text = school_name
 
