@@ -1,37 +1,46 @@
 {
-    "id": "417caf2e-4a1b-481a-966d-36cb2e6c7b20",
-    "first_name": "Mauricio",
-    "last_name": "Cates",
-    "age": 16,
+    "id": "aaeab5b9-bb34-4e52-a754-9d83470aba79",
+    "first_name": "Janus",
+    "last_name": "Brady",
+    "age": 10,
     "traits": {
-        "Health": 25,
-        "Smarts": 94,
-        "Looks": 99,
-        "Happiness": 32
+        "Health": 61,
+        "Smarts": 51,
+        "Looks": 0,
+        "Happiness": 18
     },
-    "money": 4165,
+    "money": 9142,
     "property": "None",
     "relationship": [
-        "Pieter & Wojciech"
+        "Charlotta & Jordon"
     ],
     "parents": [
         {
-            "father": "638ea8cc-b5f0-4983-86ea-fce4fa9d580d",
-            "mother": "f406f38a-e8ad-4186-80b3-9d6affb6f2dd",
-            "relationship_health": 0
+            "father": "ff866dc7-95eb-428a-8e3f-2bb043971a1f",
+            "mother": "e644232b-f1ac-47ba-8925-5416de6c17d7",
+            "relationship_health": 63
         }
     ],
     "siblings": [
         {
-            "sibling": "a4108136-4bb9-419b-ae71-52353b44a84f",
-            "relationship_health": 100
+            "sibling": "ed732b26-2240-43c3-853c-c0b316e982ff",
+            "relationship_health": 20
         },
         {
-            "sibling": "fec44e2f-dbee-42e1-aa9e-b2ca700bb6ec",
-            "relationship_health": 35
+            "sibling": "dd3c7f75-9898-41de-9553-57d469ccca3b",
+            "relationship_health": 24
+        },
+        {
+            "sibling": "28a6b2f0-d3f6-4114-832e-03bcb67f9e05",
+            "relationship_health": 42
+        },
+        {
+            "sibling": "e58cf547-36bb-4739-9269-2453716fc5af",
+            "relationship_health": 31
         }
     ],
     "school": {
-        "elementary": "Jefferson Elementary School"
-    }
+        "middle": "Franklin Middle School"
+    },
+    "grades": "F"
 }

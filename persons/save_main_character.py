@@ -62,7 +62,8 @@ def save_main_character_to_json(main_character):
         'relationship': main_character.get_parents_relationships(),  # Using get_parents_relationships method
         'parents': parents_data,
         'siblings': siblings_data,
-        'school': main_character.school  # Store school data
+        'school': main_character.school,  # Store school data
+        'grades': main_character.grades  # Ensure grades are included
     }
 
     # Save data to JSON file under "run" directory
@@ -83,12 +84,16 @@ if __name__ == "__main__":
     person = Person(age=25, first_name="John", last_name="Smith")  # Example initialization of main character
     person.create_full_name()
     person.generate_family()
-    person.save_to_json()  # Saves main character including parents
+
+    # Update smarts and recalculate grades
+    person.update_smarts(person.traits['Smarts'])
+
+    # Save main character and related data
+    save_main_character_to_json(person)
 
     # Generate and save siblings
     siblings = generate_siblings(person)
     for sibling in siblings:
         sibling.save_to_json()  # Save each sibling to JSON file
 
-    save_main_character_to_json(person)
     print("Main character and siblings generated and saved successfully.")

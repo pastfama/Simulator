@@ -25,6 +25,7 @@ class Person:
         self.siblings = []  # New attribute to store siblings
         self.traits = self.generate_traits()
         self.school = {}  # New attribute to store school data
+        self.grades = self.generate_grades()  # New attribute to store grades
         self.depth = depth
 
         logging.debug(f'Initialized Person object: {self}')
@@ -75,6 +76,39 @@ class Person:
         }
         logging.debug(f'Generated traits: {traits}')
         return traits
+
+    def generate_grades(self):
+        smarts = self.traits['Smarts']
+        if smarts >= 85:
+            return 'A'
+        elif smarts >= 70:
+            return 'B'
+        elif smarts >= 50:
+            return 'C'
+        elif smarts >= 30:
+            return 'D'
+        else:
+            return 'F'
+
+    def read_json(self, file_path):
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+            return data
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {}
+
+    def write_json(self, file_path, data):
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+
+
+    def update_smarts(self, new_smarts):
+        data = self.read_json('run/main_character.json')
+        person = Person.from_dict(data)  # Create a Person object from the existing data
+        person.update_smarts(new_smarts)  # Update the smarts trait and recalculate grades
+        self.write_json('run/main_character.json', person.to_dict())  # Save updated data
+        self.update_grades_label()  # Update the grades label with new grades
 
     def create_full_name(self):
         full_name = f"{self.first_name} {self.last_name}"
@@ -140,6 +174,7 @@ class Person:
             'last_name': self.last_name,
             'age': self.age,
             'traits': self.traits,
+            'grades': self.grades,  # Include grades data
             'parents': parents_data,
             'siblings': siblings_data,
             'school': self.school  # Include school data
@@ -150,6 +185,13 @@ class Person:
         logging.info(f'Saved Person object to JSON file: {save_filename}')
         self.save_parents_to_json([parent['father'] for parent in self.parents])
         self.save_parents_to_json([parent['mother'] for parent in self.parents])
+        self.save_main_character()
+
+    def save_main_character(self):
+        main_character_path = os.path.join(os.getcwd(), "run", "main_character.json")
+        with open(main_character_path, 'w') as f:
+            json.dump(self.to_dict(), f, indent=4)
+        logging.info(f'Saved main character to JSON file: {main_character_path}')
 
     @classmethod
     def from_dict(cls, data):
@@ -163,6 +205,7 @@ class Person:
         person.siblings = data.get('siblings', [])  # Load siblings from data dictionary
         person.traits = data.get('traits', {})
         person.school = data.get('school', {})  # Load school data
+        person.grades = data.get('grades', 'F')  # Load grades data
         logging.debug(f'Created Person object from dictionary: {person}')
         return person
 

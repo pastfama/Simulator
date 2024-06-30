@@ -4,7 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 import random
-
+from persons.person import Person  # Ensure this import is correct and points to your Person class
 
 class SubScreen1(Screen):
     def __init__(self, **kwargs):
@@ -13,6 +13,9 @@ class SubScreen1(Screen):
 
         self.school_label = Label(text="School Name")
         self.layout.add_widget(self.school_label)
+
+        self.grades_label = Label(text='Grades: ')
+        self.layout.add_widget(self.grades_label)
 
         self.button1 = Button(text="Button1")
         self.layout.add_widget(self.button1)
@@ -32,6 +35,7 @@ class SubScreen1(Screen):
     def on_enter(self):
         self.update_buttons_text()
         self.update_school_label()
+        self.update_grades_label()
 
     def read_json(self, file_path):
         try:
@@ -109,6 +113,26 @@ class SubScreen1(Screen):
             school_name = data['school'].get('high', 'High School')
 
         self.school_label.text = school_name
+
+    def update_grades_label(self):
+        data = self.read_json('run/main_character.json')
+        grades = data.get('grades', 'No grades available')
+        self.grades_label.text = f'Grades: {grades}'
+
+    def save_grades(self):
+        data = self.read_json('run/main_character.json')
+        person = Person.from_dict(data)  # Create a Person object from the existing data
+        grades = person.generate_grades()  # Generate grades based on the smarts trait
+        data['grades'] = grades
+        self.write_json('run/main_character.json', data)
+        self.update_grades_label()
+
+    def update_smarts(self, new_smarts):
+        data = self.read_json('run/main_character.json')
+        person = Person.from_dict(data)  # Create a Person object from the existing data
+        person.update_smarts(new_smarts)  # Update the smarts trait and recalculate grades
+        self.write_json('run/main_character.json', person.to_dict())  # Save updated data
+        self.update_grades_label()  # Update the grades label with new grades
 
     def go_back(self, instance):
         self.manager.current = 'game'  # Navigate back to the GameScreen
