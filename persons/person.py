@@ -79,13 +79,13 @@ class Person:
 
     def generate_grades(self):
         smarts = self.traits['Smarts']
-        if smarts >= 85:
+        if (smarts >= 85):
             return 'A'
-        elif smarts >= 70:
+        elif (smarts >= 70):
             return 'B'
-        elif smarts >= 50:
+        elif (smarts >= 50):
             return 'C'
-        elif smarts >= 30:
+        elif (smarts >= 30):
             return 'D'
         else:
             return 'F'
@@ -150,7 +150,7 @@ class Person:
             'mother': parent['mother']
         } for parent in self.parents]
 
-        siblings_data = [{'sibling': sibling} for sibling in self.siblings]
+        siblings_data = [{'first_name': sibling['first_name'], 'last_name': sibling['last_name']} for sibling in self.siblings]
 
         return {
             'id': self.id,
