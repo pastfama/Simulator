@@ -1,36 +1,36 @@
 {
-    "id": "2533066d-308c-4f11-9902-9bba3932d9a7",
-    "first_name": "Bartolemo",
-    "last_name": "Bass",
-    "age": 17,
+    "id": "2eb2bcb6-7e63-4941-a007-80d86c844d62",
+    "first_name": "Eben",
+    "last_name": "McCoy",
+    "age": 0,
     "traits": {
-        "Health": 45,
-        "Smarts": 79,
-        "Looks": 43,
-        "Happiness": 12
+        "Health": 44,
+        "Smarts": 44,
+        "Looks": 24,
+        "Happiness": 80
     },
-    "money": 8035,
+    "money": 1278,
     "property": "None",
     "relationship": [
-        "Cobb & Carmel"
+        "Gino & Welsh"
     ],
     "parents": [
         {
-            "father": "9524077e-3f2c-446f-bd56-a0d7ff0dc139",
-            "mother": "65736bde-e1e8-4a2c-b732-9ecef5e9cffb",
-            "relationship_health": 11
+            "father": "db4eda74-ba69-4b63-aea2-366c25cbff84",
+            "mother": "ce7f291b-2187-47cc-ac49-f201216cc104",
+            "relationship_health": 83
         }
     ],
     "siblings": [
         {
-            "sibling": "475ef0ed-bbc9-4af0-be7c-85ed742ddf9c",
-            "relationship_health": 49
+            "sibling": "d0e8ca55-e1c3-453a-8d05-852828233c38",
+            "relationship_health": 67
+        },
+        {
+            "sibling": "e41ff946-bbef-4987-82fc-e838680da212",
+            "relationship_health": 97
         }
     ],
-    "school": {
-        "elementary": "Roosevelt Elementary School",
-        "middle": "Roosevelt Middle School",
-        "high": "Kennedy High School"
-    },
-    "grades": "B"
+    "school": {},
+    "grades": "C"
 }

@@ -3,16 +3,19 @@ import json
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
 from persons.load_main_character import load_main_character
+from kivy.uix.boxlayout import BoxLayout
 
 class SubScreen4(Screen):
     def on_enter(self):
         try:
-            self.ids.character_label, self.ids.age_label, _ = load_main_character(self.ids.character_label, self.ids.age_label, None)
+            # Assuming load_main_character accepts None for money_label
+            self.ids.character_label, self.ids.age_label, _, _ = load_main_character(self.ids.character_label, self.ids.age_label, money_label=None)
 
             self.ids.parents_container.clear_widgets()
             self.ids.siblings_container.clear_widgets()
 
             main_character_data = json.load(open(os.path.join(os.getcwd(), 'run', 'main_character.json')))
+            self.layout = BoxLayout(orientation='vertical')
 
             # Load parents
             if 'parents' in main_character_data:
@@ -28,8 +31,8 @@ class SubScreen4(Screen):
                             father_name = f"{father_data['first_name']} {father_data['last_name']}"
                             father_button = Button(
                                 text=f"{father_name}\nFather\nHealth: {relationship_health}",
-                                font_size='12sp', size_hint=(None, None), height=100,
-                                text_size=(self.width, None),  # Limit the text width to the button's width
+                                font_size='12sp', size_hint=(1, None), height=100,
+                                text_size=(None, None),  # Remove text size limit
                                 halign='center',  # Horizontal alignment
                                 valign='middle'  # Vertical alignment
                             )
@@ -43,8 +46,8 @@ class SubScreen4(Screen):
                             mother_name = f"{mother_data['first_name']} {mother_data['last_name']}"
                             mother_button = Button(
                                 text=f"{mother_name}\nMother\nHealth: {relationship_health}",
-                                font_size='12sp', size_hint=(None, None), height=100,
-                                text_size=(self.width, None),  # Limit the text width to the button's width
+                                font_size='12sp', size_hint=(1, None), height=100,
+                                text_size=(None, None),  # Remove text size limit
                                 halign='center',  # Horizontal alignment
                                 valign='middle'  # Vertical alignment
                             )
@@ -65,8 +68,8 @@ class SubScreen4(Screen):
                             relationship = "Brother" if gender.lower() == 'male' else "Sister"
                             sibling_button = Button(
                                 text=f"{sibling_name}\n{relationship}\nHealth: {relationship_health}",
-                                font_size='12sp', size_hint=(None, None), height=100,
-                                text_size=(self.width, None),  # Limit the text width to the button's width
+                                font_size='12sp', size_hint=(1, None), height=100,
+                                text_size=(None, None),  # Remove text size limit
                                 halign='center',  # Horizontal alignment
                                 valign='middle'  # Vertical alignment
                             )
