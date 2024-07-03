@@ -17,8 +17,8 @@ class SubScreen1(Screen):
         self.grades_label = Label(text='Grades: ')
         self.layout.add_widget(self.grades_label)
 
-        self.button1 = Button(text="Classmates")
-        self.button1.bind(on_release=lambda x: self.change_screen('subscreen1_1'))
+        self.button1 = Button(text="Button 1")
+        self.button1.bind(on_release=lambda x: self.button_1_pressed())
         self.layout.add_widget(self.button1)
 
         self.button2 = Button(text="Button 2")
@@ -36,7 +36,7 @@ class SubScreen1(Screen):
     def on_enter(self):
         self.update_school_label()
         self.update_grades_label()
-
+        self.update_buttons()
     def read_json(self, file_path):
         try:
             with open(file_path, 'r') as file:
@@ -127,6 +127,36 @@ class SubScreen1(Screen):
         screen_name = 'subscreen1_1'
         self.manager.current= screen_name
         return sm
+
+    def button_1_pressed(self):
+        data = self.read_json('run/main_character.json')
+        age = data.get('age')
+        if age <= 5:
+            self.button1.text=("Baby Placehold")
+        elif age in range(6,18):
+            self.change_screen('subscreen1_1')
+        else: print('placeholder')
+
+    def update_buttons(self):
+        data = self.read_json('run/main_character.json')
+        age = data.get('age')
+        if age in range(0,5):
+            self.button1.text =("Baby Placehold")
+            self.button2.text=('Baby Plcehold 2')
+            self.button3.text=('Baby Placehold 2')
+        elif age in range(6,18):
+            self.button1.text=("Classmates")
+            self.button2.text=('Teen Placehold 1')
+            self.button3.text = ('Teen Placehold 2')
+        elif age in range(19,60):
+            self.button1.text=("Adult Placeholder")
+            self.button2.text=("Adult Placeholder 2")
+            self.button3.text = ('Adult Placehold 3')
+        else:
+            self.button1.text = ("Elder Placeholder")
+            self.button2.text = ("Elder Placeholder 2")
+            self.button3.text = ('Elder Placehold 3')
+
 class MainApp(App):
     def build(self):
         sm = ScreenManager()
