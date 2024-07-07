@@ -1,32 +1,29 @@
 {
-    "id": "c2a377a7-33d5-48b2-bcb7-3bc217c0bf71",
-    "first_name": "Tasia",
-    "last_name": "Keith",
-    "age": 24,
+    "id": "3e79ad21-601a-43eb-8fc9-68e217b133bc",
+    "first_name": "Zandra",
+    "last_name": "Vaughn",
+    "age": 6,
     "traits": {
-        "Health": 34,
-        "Smarts": 20,
-        "Looks": 30,
-        "Happiness": 17
+        "Health": 47,
+        "Smarts": 93,
+        "Looks": 96,
+        "Happiness": 18
     },
-    "money": 9265,
+    "money": 1355,
     "property": "None",
     "relationship": [
-        "Winny & Dimitry"
+        "French & Aurore"
     ],
     "parents": [
         {
-            "father": "fb2381d0-3067-47b6-b9fe-f104c7f13c9a",
-            "mother": "038d6895-bae2-4347-b1a3-3cfdf1a248df",
-            "relationship_health": 17
+            "father": "5711da4c-dd44-469b-8b3a-fb2ad93c99f7",
+            "mother": "9fcb1697-157d-4c0d-8f7e-f60f9f55313d",
+            "relationship_health": 38
         }
     ],
-    "siblings": [
-        {
-            "sibling": "f9b985e2-d8dd-4501-a549-a1535610d832",
-            "relationship_health": 54
-        }
-    ],
-    "school": {},
-    "grades": "F"
+    "siblings": [],
+    "school": {
+        "elementary": "Madison Elementary School"
+    },
+    "grades": "A"
 }

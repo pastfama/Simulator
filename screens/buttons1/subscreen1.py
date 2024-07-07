@@ -122,7 +122,7 @@ class SubScreen1(Screen):
     def go_back(self, instance):
         self.manager.current = 'game'  # Navigate back to the GameScreen
 
-    def change_screen(self, screen_name):
+    def change_screen_to_subscreen1_1(self, screen_name):
         sm = ScreenManager
         screen_name = 'subscreen1_1'
         self.manager.current= screen_name
@@ -134,7 +134,7 @@ class SubScreen1(Screen):
         if age <= 5:
             self.button1.text=("Baby Placehold")
         elif age in range(6,18):
-            self.change_screen('subscreen1_1')
+            self.change_screen_to_subscreen1_1('subscreen1_1')
         else: print('placeholder')
 
     def update_buttons(self):
