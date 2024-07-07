@@ -1,36 +1,29 @@
 {
-    "id": "2533066d-308c-4f11-9902-9bba3932d9a7",
-    "first_name": "Bartolemo",
-    "last_name": "Bass",
-    "age": 17,
+    "id": "3e79ad21-601a-43eb-8fc9-68e217b133bc",
+    "first_name": "Zandra",
+    "last_name": "Vaughn",
+    "age": 6,
     "traits": {
-        "Health": 45,
-        "Smarts": 79,
-        "Looks": 43,
-        "Happiness": 12
+        "Health": 47,
+        "Smarts": 93,
+        "Looks": 96,
+        "Happiness": 18
     },
-    "money": 8035,
+    "money": 1355,
     "property": "None",
     "relationship": [
-        "Cobb & Carmel"
+        "French & Aurore"
     ],
     "parents": [
         {
-            "father": "9524077e-3f2c-446f-bd56-a0d7ff0dc139",
-            "mother": "65736bde-e1e8-4a2c-b732-9ecef5e9cffb",
-            "relationship_health": 11
+            "father": "5711da4c-dd44-469b-8b3a-fb2ad93c99f7",
+            "mother": "9fcb1697-157d-4c0d-8f7e-f60f9f55313d",
+            "relationship_health": 38
         }
     ],
-    "siblings": [
-        {
-            "sibling": "475ef0ed-bbc9-4af0-be7c-85ed742ddf9c",
-            "relationship_health": 49
-        }
-    ],
+    "siblings": [],
     "school": {
-        "elementary": "Roosevelt Elementary School",
-        "middle": "Roosevelt Middle School",
-        "high": "Kennedy High School"
+        "elementary": "Madison Elementary School"
     },
-    "grades": "B"
+    "grades": "A"
 }

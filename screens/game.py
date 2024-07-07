@@ -35,6 +35,7 @@ class GameScreen(Screen):
 
         self.character_label = Label(text="Name: ", font_size='20sp', size_hint=(0.6, 1))
         self.age_label = Label(text="Age: 0", font_size='20sp', size_hint=(0.4, 1))  # Initial age is 0
+        self.money_label = Label(text="Money: ")
 
         button3 = Button(text="Age Up", font_size='20sp')
         button3.bind(on_release=self.age_button_pressed)
@@ -53,6 +54,7 @@ class GameScreen(Screen):
         info_layout = BoxLayout(size_hint=(1, None), height=50, orientation='horizontal', spacing=10)
         info_layout.add_widget(self.character_label)
         info_layout.add_widget(self.age_label)
+        info_layout.add_widget(self.money_label)
         layout.add_widget(info_layout)
 
         self.bar_graph = BarGraphWidget(size_hint=(1, 0.3))
@@ -80,7 +82,7 @@ class GameScreen(Screen):
                 birth_explanation = self.generate_birth_explanation()
                 game_screen.readonly_widget.text += f"{birth_explanation}\nYou were born."
 
-        load_main_character(game_screen.character_label, game_screen.age_label, game_screen.bar_graph)
+        load_main_character(game_screen.character_label, game_screen.age_label, game_screen.money_label, game_screen.bar_graph)
 
         # Save text to file when entering the screen
         self.save_text_to_file()

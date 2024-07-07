@@ -10,7 +10,7 @@ from screens.buttons2.subscreen2 import SubScreen2
 from screens.buttons3.subscreen3 import SubScreen3
 from screens.buttons4.subscreen4 import SubScreen4
 from screens.buttons5.subscreen5 import SubScreen5
-
+from screens.buttons1.subscreen1_1 import Subscreen1_1
 class MyApp(App):
     def build(self):
         self.cleanup_run_folder()  # Clean up "run" folder before adding screens
@@ -23,6 +23,7 @@ class MyApp(App):
         sm.add_widget(SubScreen3(name='subscreen3'))
         sm.add_widget(SubScreen4(name='subscreen4'))
         sm.add_widget(SubScreen5(name='subscreen5'))
+        sm.add_widget(Subscreen1_1(name="subscreen1_1"))
         return sm
 
     def cleanup_run_folder(self):
